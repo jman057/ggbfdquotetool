@@ -1,0 +1,378 @@
+<!-- https://hamed-ehtesham.github.io/pretty-checkbox-vue/ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+
+
+
+<div class="container">
+  <!-- Content here -->
+
+  <div id="app">
+
+    <h1> Funeral Quote Tool</h1>
+    <div v-if="!step">
+    <p> Here we take you through the important decisions you need to consider.
+      We’ll contact funeral directors on your behalf and be back to you within
+      24 hours – sooner if you tell us it’s urgent. Your details remain private
+      until you decide you wish to connect with anyone of the funeral directors </p>
+
+    <p>You can save your answers as a draft if you’re not quite ready to get pricing.
+      Note that your quote won’t include the kinds of decisions that are variable.
+      Things like venue hire, catering, flowers, even caskets have wide-ranging prices.</p>
+
+    <p>Don’t worry, we can help you out with those decisions too, but first, let’s get the basics sorted out.
+     </p>
+</div>
+
+
+    <div class="previous-quotes"
+    v-if="!showForm"
+    >
+      <h4>Saved Quotes</h4>
+      <ul class="list-group">
+        <li class="list-group-item">23 October 2019</li>
+        <li class="list-group-item">27 October 2019</li>
+      </ul>
+
+      <button type="button" class="btn btn-primary"
+      @click="newQuote">
+      Begin
+    </button>
+
+    </div>
+
+
+
+    <!-- quote tool form wrapper -->
+    <form
+    action="https://formspree.io/xneboqbm" method="POST"
+    v-if="showForm" class="card">
+        <div class="card-body">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" v-bind:style="{width: progressPercentage + '%'}" aria-valuenow="{{message}}" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+
+
+
+
+      <!-- block one -->
+      <div class="form-step" v-show="step == 1">
+
+        <h2 class="form-section-heading">1. Funeral Directors Fee</h2>
+        <p>All funeral directors charge a base service fee. This includes  </p>
+        <label for="service-fee">
+          <p-check color="success" class="p-smooth" name="service-fee" type="checkbox" checked disabled>
+            Funeral Directors Service Fee
+            </p-check>
+        </label>
+
+      </div>
+
+
+
+
+
+
+
+<!-- form block 2 -->
+      <div class="form-step" v-show="step==2">
+        <h2 class="form-section-heading">2. Burial or Cremation</h2>
+        <p>Note that the internment fee below does not include the cost of a burial plot or headstone.
+          Embalming delays composition of the body using the chemicals
+          </p>
+
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="internment" id="bury" value="bury" checked>
+            <label class="form-check-label" for="bury">
+              Burial
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="internment" id="cremation" value="cremation">
+            <label class="form-check-label" for="cremation">
+              Cremation
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="internment" id="aqua-cremation" value="aqua-cremation" >
+            <label class="form-check-label" for="aqua-cremation">
+              Aqua Cremation
+            </label>
+          </div>
+
+<hr>
+          <h4>Direct to committal  </h4>
+          <label for="direct-to-committal">
+
+            <p>Selecting Direct to Committal means that your quote will exclude options for ...</p>
+
+            <p-check color="success" class="p-smooth" name="direct-to-committal" id="direct-to-committal" type="checkbox"
+              v-model="diretToCommittal"
+            >
+            Direct to committal
+            </p-check>
+          </label>
+
+
+      </div>
+
+
+<!-- SETION 3 -->
+
+<div class="form-step" v-show="step==3">
+  <h2 class="form-section-heading">3. Viewing and Wake</h2>
+  <p>If you elect to have the casket open, the funeral professional will quote for body preparation and presentation.
+    </p>
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="viewing" id="open" value="open-casket" checked>
+      <label class="form-check-label" for="open">
+        Casket open
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="viewing" id="closed" value="closed-casket">
+      <label class="form-check-label" for="closed">
+        No viewing. The casket will remain closed
+      </label>
+    </div>
+
+
+    <hr>
+    <h4>We explicitly would prefer not to embalm  </h4>
+    <p>Selecting We explicitly would prefer not to embalm means that your quote will exclude options for embalming</p>
+    <label for="exclude-embalming">
+      <input name="exclude-embalming" id="exclude-embalming" type="checkbox">
+      We explicitly would prefer not to embalm
+    </label>
+
+
+</div>
+
+
+
+<!-- SETION 4 -->
+
+<div class="form-step" v-show="step==4">
+  <h2 class="form-section-heading">4. Private Time</h2>
+  <p>An extended time at home, or an hour or two at the funeral home in the days
+    before the service or committal, taking some private time is important for
+    some families. This decision impacts transport arrangements and the funeral professional’s time.
+
+    </p>
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="private-time" id="private-facility" value="private-facility" checked>
+      <label class="form-check-label" for="private-facility">
+      At the Funerl Director's facility
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="private-time" id="other-location" value="other-location">
+      <label class="form-check-label" for="other-location">
+        At another Location
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="private-time" id="none" value="none">
+      <label class="form-check-label" for="none">
+        Private visitation time is not required
+      </label>
+    </div>
+
+
+
+</div>
+
+
+<!-- SETION 5 -->
+
+<div class="form-step" v-show="step==5" >
+  <h2 class="form-section-heading">5. Arranging a Service</h2>
+  <p>There are any number of ways that families might arrange a Great Goodbye.
+    Traditionally, the casket is present, and whether the service is formal or
+    something less structured, this remains important for many. But families might
+    choose to have the ashes instead of the casket, or opt for a memorial service at a later date.
+    </p>
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="service" id="graveside" value="graveside" checked>
+      <label class="form-check-label" for="graveside">
+      Graveside service
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="service" id="service-facility" value="service-facility">
+      <label class="form-check-label" for="service-facility">
+        At the Funeral Director's facility
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="service" id="worship" value="worship">
+      <label class="form-check-label" for="worship">
+        At a place of worship
+      </label>
+    </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="service" id="alternative" value="alternative">
+    <label class="form-check-label" for="alternative">
+      At an alternative venue
+    </label>
+  </div>
+
+
+
+
+</div>
+
+
+<!-- SETION 6 -->
+
+<div class="form-step" v-show="step==6">
+  <h2 class="form-section-heading">6. Transport</h2>
+  <p>Driving your loved one to the service and then on to the committal is a special way to get involved and personalise a Great Goodbye. For some people, taking this last drive together is deeply meaningful. If that’s not for you, your funeral professional will be honoured to do this task on your family’s behalf.
+
+If the elegance and formality of the large black hearse fits with your Great Goodbye, then ask your funeral director to arrange this. Increasingly, there is a wide range of vehicle options available from directors. A hearse is an additional charge to a standard director’s fee, usually upward of $450.
+
+But there is no law that says you can’t transport the casket yourself, and you might wish to step beyond historic convention and do something a little different. Grab the combi van they always took surfing or put the farm tractor to work for this final journey.
+
+Of course, if bidding farewell at home, you will not need to specify funeral transport beyond having the casket delivered to the crematorium or burial ground.
+
+
+    </p>
+
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="transport" id="collection" value="collection" checked disabled>
+      <label class="form-check-label" for="collection">
+      Body collection from place of death. This option is included as part of the funeral director base fee.
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="transport" id="to-service" value="to-service">
+      <label class="form-check-label" for="to-service">
+        Funeral Director provides transport to the service venue
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="transport" id="to-committal" value="to-committal">
+      <label class="form-check-label" for="to-committal">
+        Funeral Director provides transport to the crematorium or burial ground
+      </label>
+    </div>
+
+
+</div>
+
+
+
+<!-- SETION 7 -->
+
+<div class="form-step" v-show="step==7">
+  <h2 class="form-section-heading">7. Request Quote</h2>
+  <p>We’ll contact local funeral professionals and get some quotes for you, on your behalf. We won't share your contact or private information.
+
+Once you receive the quotes, you’ll be able to initiate contact with the funeral professionals, or, if you are still unsure about your plan, you can return to Great Goodbyes and get a different quote based on different choices.
+
+Remember that the quote is only for the services that the funeral professional does, and does not include services provided by other professionals that may be included. For those, we encourage you to browse the marketplace.
+
+    </p>
+
+    <div class="form-check">
+      <label class="form-check-label" for="toquote">
+        <input class="form-check-input" type="checkbox" name="toquote" id="toquote" checked
+        v-model="toQuote">
+        I would like to receive some quotes
+      </label>
+    </div>
+<hr>
+<div class="quote-block" v-if="toQuote">
+
+
+    <h4>Please tell us more about yourself</h4>
+
+
+    <div class="form-check">
+      <label class="form-check-label" for="urgent">
+        <input class="form-check-input" type="checkbox" name="urgent" id="urgent">
+        This is an urgent quote - the death has already occurred
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Address</label>
+      <input type="text" class="form-control" name="location" id="location" placeholder="location">
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" name="phone" id="phone" placeholder="021 123 456">
+    </div>
+
+
+</div>
+
+
+</div>
+
+<!-- FORM NAVIGATION -->
+
+<div class="lower-nav">
+
+
+  <button type="button" class="btn btn-primary float-right"
+    @click.prevent="next"
+    v-if="step < 7"
+    >Next
+  </button>
+
+  <button type="button" class="btn btn-primary"
+  @click="prev"
+  v-if="step > 1"
+  >Previous</button>
+
+  <button type="button" class="btn btn-primary"
+  @click="cancel"
+  v-else
+  >Cancel</button>
+
+
+    <button v-if="step == 7" type="submit" class="btn btn-primary float-right"
+      >Submit
+    </button>
+  
+
+</div>
+
+
+</div>
+    </form>
+
+
+
+  </div>
+</div>
+
+
+<!-- <script src="https://kit.fontawesome.com/ff9b9ba176.js" crossorigin="anonymous"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/pretty-checkbox-vue@1.1/dist/pretty-checkbox-vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script src="app.js"></script>

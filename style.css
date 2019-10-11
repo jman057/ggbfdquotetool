@@ -1,0 +1,25 @@
+.btn{
+  margin-top: 15px;
+  background-color: #40052f;
+  border-color:#40052f;
+}
+.btn:hover{
+  background-color: #40052f;
+  border-color:#40052f;
+}
+
+.progress-bar{
+  background-color: #40052f;
+}
+.form-step{
+  min-height: 400px;
+}
+.form-section-heading{
+  margin-top: 40px;
+}
+.quote-block{
+  border: 1px solid lightgray;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
