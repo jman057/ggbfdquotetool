@@ -1,7 +1,7 @@
-<!-- https://hamed-ehtesham.github.io/pretty-checkbox-vue/ -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="styles/toggle.css">
+<link rel="stylesheet" href="styles/select.css">
 
 
 
@@ -11,40 +11,43 @@
 
   <div id="app">
 
-    <h1> Funeral Quote Tool</h1>
     <div v-if="!step">
-    <p> Here we take you through the important decisions you need to consider.
-      We’ll contact funeral directors on your behalf and be back to you within
-      24 hours – sooner if you tell us it’s urgent. Your details remain private
-      until you decide you wish to connect with anyone of the funeral directors </p>
+    <h2 class="step-heading"> Funeral Quote Tool</h1>
+    <p> Here, you’ll work through the important decisions you need to consider. 
+      We’ll contact funeral directors on your behalf and be back to you within 24 hours – 
+      sooner if you tell us it’s urgent. Your details remain private until you decide you wish 
+      to connect with anyone of the funeral directors </p>
 
-    <p>You can save your answers as a draft if you’re not quite ready to get pricing.
-      Note that your quote won’t include the kinds of decisions that are variable.
-      Things like venue hire, catering, flowers, even caskets have wide-ranging prices.</p>
+      <p> can save your answers as a draft if you’re not quite ready to get pricing. 
+        Note that your quote won’t include the kinds of decisions that are variable. 
+        Things like venue hire, catering, flowers, even caskets have wide-ranging prices.</p>
+      
+      <p>      Don’t worry, we can help you out with those decisions too, 
+        but first, let’s get the basics sorted out
+        </p>
 
-    <p>Don’t worry, we can help you out with those decisions too, but first, let’s get the basics sorted out.
-     </p>
-</div>
+
+        
+        
 
 
-    <div class="previous-quotes"
-    v-if="!showForm"
-    >
-      <h4>Saved Quotes</h4>
-      <ul class="list-group">
-        <li class="list-group-item">23 October 2019</li>
-        <li class="list-group-item">27 October 2019</li>
-      </ul>
-
-      <button type="button" class="btn btn-primary"
-      @click="newQuote">
-      Begin
-    </button>
-
+      <div style="display:flex; flex-direction: column; align-items: center;">
+          
+          <button @click="newQuote" type="submit" class="btn btn-primary float-right"
+          >Start
+        </button>
+        
+        <img src="assets/checklist.png">
+      </div>
+      
     </div>
 
 
 
+
+
+    <!-- quote tool form wrapper -->
+    <!-- quote tool form wrapper -->
     <!-- quote tool form wrapper -->
     <form
     action="https://formspree.io/xneboqbm" method="POST"
@@ -59,15 +62,24 @@
 
 
       <!-- block one -->
+      <!-- block one -->
+      <!-- block one -->
       <div class="form-step" v-show="step == 1">
 
-        <h2 class="form-section-heading">1. Funeral Directors Fee</h2>
-        <p>All funeral directors charge a base service fee. This includes  </p>
+        <h2 class="step-heading">Funeral Directors Fee</h2>
+        <p>All funeral directors charge a fixed service fee.  It covers being available to make 
+          arrangements on your behalf, managing all required paperwork like the death and 
+          medical certificates, and a contribution towards their overheads   </p>
+
+      <p>The Funeral Director's fee is no optional</p>
+
         <label for="service-fee">
           <p-check color="success" class="p-smooth" name="service-fee" type="checkbox" checked disabled>
             Funeral Directors Service Fee
             </p-check>
         </label>
+
+        <toggle-select name = "inputname"  title = "this is the title"></toggle-select>
 
       </div>
 
@@ -78,43 +90,91 @@
 
 
 <!-- form block 2 -->
+<!-- form block 2 -->
+<!-- form block 2 -->
       <div class="form-step" v-show="step==2">
-        <h2 class="form-section-heading">2. Burial or Cremation</h2>
-        <p>Note that the internment fee below does not include the cost of a burial plot or headstone.
-          Embalming delays composition of the body using the chemicals
+        <h2 class="step-heading">Committal of the body</h2>
+        <div class="step-description-wrapper">
+        <span class="step-help-circle">
+          <img src="assets/help-circle.svg">
+        </span>
+
+          <span class="step-description">
+            <p>The funeral director will quote for arranging the committal. 
+              This will include paperwork, transport and other costs specific to your selection. 
           </p>
+          </span>
 
 
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="internment" id="bury" value="bury" checked>
-            <label class="form-check-label" for="bury">
-              Burial
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="internment" id="cremation" value="cremation">
-            <label class="form-check-label" for="cremation">
-              Cremation
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="internment" id="aqua-cremation" value="aqua-cremation" >
-            <label class="form-check-label" for="aqua-cremation">
-              Aqua Cremation
-            </label>
-          </div>
+        </div>
 
-<hr>
-          <h4>Direct to committal  </h4>
-          <label for="direct-to-committal">
 
-            <p>Selecting Direct to Committal means that your quote will exclude options for ...</p>
 
-            <p-check color="success" class="p-smooth" name="direct-to-committal" id="direct-to-committal" type="checkbox"
-              v-model="diretToCommittal"
-            >
-            Direct to committal
-            </p-check>
+          <div class="switch-field">
+              <input type="radio" id="bury" name="committal" value="bury" v-model="committal" checked/>
+              <label for="bury">
+                <div class="ggb-select-image">
+                  <img v-if = "committal == 'bury'" src="assets/bury-active.svg">
+                  <img v-else src="assets/bury-normal.svg">
+                </div>
+                <div class="title">Bury</div>
+                <div class="description">This does not include the burial plot or headstone.</div>
+              </label>
+
+
+              <input type="radio" id="cremate" name="committal" value="cremate" v-model="committal"/>
+              <label for="cremate">
+
+
+                  <div class="ggb-select-image">
+                      <img v-if = "committal == 'cremate'" src="assets/cremate-active.svg">
+                      <img v-else src="assets/cremate-normal.svg">
+                    </div>
+                    <div class="title">Cremation</div>
+                    <div class="description">The family will have ashes returned for scattering or burying.</div>
+
+              </label>
+              <input type="radio" id="aquacremate" name="committal" value="aquacremate" v-model="committal" />
+              <label for="aquacremate">
+
+                  <div class="ggb-select-image">
+                      <img v-if = "committal == 'aquacremate'" src="assets/aqua-active.svg">
+                      <img v-else src="assets/aqua-normal.svg">
+                    </div>
+                    <div class="title">BioCremation</div>
+                    <div class="description">Emerging as a promising environmentally friendly way for decomposition of the body.</div>
+              </label>
+            </div>
+
+
+
+          <h2 class="step-heading">Direct to committal  </h2>
+
+          <div class="step-description-wrapper">
+              <span class="step-help-circle">
+                <img src="assets/help-circle.svg">
+              </span>
+      
+                <span class="step-description">
+                  <p>Most commonly, this option is for direct to cremation.
+                      Any service you arrange will not have the casket present, but might include the ashes.
+                  
+                </p>
+                </span>
+      
+      
+              </div>
+
+
+              <toggle-select name = "dtc"  title = "Direct to Committal"></toggle-select>
+
+
+
+
+
+
+
+
           </label>
 
 
@@ -122,34 +182,68 @@
 
 
 <!-- SETION 3 -->
+<!-- SETION 3 -->
+<!-- SETION 3 -->
 
 <div class="form-step" v-show="step==3">
-  <h2 class="form-section-heading">3. Viewing and Wake</h2>
-  <p>If you elect to have the casket open, the funeral professional will quote for body preparation and presentation.
-    </p>
-
-
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="viewing" id="open" value="open-casket" checked>
-      <label class="form-check-label" for="open">
-        Casket open
-      </label>
+  <h2 class="step-heading">Viewing</h2>
+  <div class="step-description-wrapper">
+    <div class="step-help-circle">
+        <img src="assets/help-circle.svg">
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="viewing" id="closed" value="closed-casket">
-      <label class="form-check-label" for="closed">
-        No viewing. The casket will remain closed
+    <div class="step-description">
+        <p>It’s not for everyone, but for some it’s important to see their 
+          loved one, one last time. It’s the chance for a final kiss, or touch 
+          of the hand. Your funeral director will quote for preparation and presentation.
+          </p>
+    </div>
+  </div>
+  
+
+
+  <div class="switch-field">
+      <input type="radio" id="open" name="viewing" value="open" v-model="viewing" checked/>
+      <label for="open">
+        <div class="ggb-select-image">
+          <img v-if = "viewing == 'open'" src="assets/casket-open-active.svg">
+          <img v-else src="assets/casket-open-normal.svg">
+        </div>
+        <div class="title">Open Casket</div>
+        <div class="description">We would like to have the casket open at some point</div>
       </label>
+
+
+      <input type="radio" id="closed" name="viewing" value="closed" v-model="viewing"/>
+      <label for="closed">
+
+          <div class="ggb-select-image">
+              <img v-if = "viewing == 'closed'" src="assets/casket-closed-active.svg">
+              <img v-else src="assets/casket-closed-normal.svg">
+            </div>
+            <div class="title">Closed Casket</div>
+            <div class="description">We do not require the casket open at all.</div>
+
+      </label>
+      
     </div>
 
 
-    <hr>
-    <h4>We explicitly would prefer not to embalm  </h4>
-    <p>Selecting We explicitly would prefer not to embalm means that your quote will exclude options for embalming</p>
-    <label for="exclude-embalming">
-      <input name="exclude-embalming" id="exclude-embalming" type="checkbox">
-      We explicitly would prefer not to embalm
-    </label>
+
+
+<h2 class="step-heading">We explicitly would prefer not to embalm  </h2>
+
+<div class="step-description-wrapper">
+<div class="step-help-circle">
+    <img src="assets/help-circle.svg">
+</div>
+  <div class="step-description"></div>
+  <p>Selecting We explicitly would prefer not to embalm means that your quote will exclude options for embalming</p>
+
+</div>
+
+   
+
+    <toggle-select name = "viewing"  title = "We explicitly would prefer not to embalm"></toggle-select>
 
 
 </div>
@@ -157,14 +251,28 @@
 
 
 <!-- SETION 4 -->
+<!-- SETION 4 -->
+<!-- SETION 4 -->
 
 <div class="form-step" v-show="step==4">
-  <h2 class="form-section-heading">4. Private Time</h2>
-  <p>An extended time at home, or an hour or two at the funeral home in the days
-    before the service or committal, taking some private time is important for
-    some families. This decision impacts transport arrangements and the funeral professional’s time.
+  <h2 class="step-heading">Private Time / Visitation</h2>
+  <div class="step-description-wrapper">
+      <div class="step-help-circle">
+          <img src="assets/help-circle.svg">
+      </div>
+    
+    <div class="step-description">
+      <p>An extended time at home, or an hour or two at the funeral home in the days
+          before the service or committal, taking some private time is important for
+          some families. This decision impacts transport arrangements and the funeral professional’s time.
 
-    </p>
+          </p>
+
+    </div>
+  </div>
+
+
+  
 
 
     <div class="form-check">
@@ -372,7 +480,7 @@ Remember that the quote is only for the services that the funeral professional d
 </div>
 
 
-<!-- <script src="https://kit.fontawesome.com/ff9b9ba176.js" crossorigin="anonymous"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/pretty-checkbox-vue@1.1/dist/pretty-checkbox-vue.min.js"></script>
+<script src="https://kit.fontawesome.com/ff9b9ba176.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-<script src="app.js"></script>
+<script src="js/toggle.js"></script>
+<script src="js/app.js"></script>

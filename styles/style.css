@@ -1,0 +1,60 @@
+.container{
+  max-width: 800px;
+}
+
+
+.btn{
+  margin-top: 15px;
+  background-color: #40052f;
+  border-color:#40052f;
+  min-width: 150px;
+}
+.btn:hover{
+  background-color: #40052f;
+  border-color:#40052f;
+}
+
+.progress-bar{
+  background-color: #40052f;
+}
+.form-step{
+  min-height: 400px;
+}
+.form-section-heading{
+  margin-top: 40px;
+}
+.quote-block{
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.card{
+  border:none;
+}
+
+
+h2.step-heading{
+  font-size: 24;
+  color: #40052F;
+  text-align:center;
+  margin-top:20px;
+  margin-bottom:10px;
+}
+
+
+.option-default{
+   color: #3B4857;
+}
+.option-selected{
+  color: #40052F;
+}
+
+.step-description-wrapper{
+  display:flex;
+}
+.step-help-circle{
+  padding-right: 10px;
+  padding-top: 7px;
+}

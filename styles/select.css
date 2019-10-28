@@ -1,0 +1,65 @@
+.switch-field {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+	margin-bottom: 36px;
+	margin-top: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+    height:173px;
+    width:230px;
+    
+  	
+	line-height: 1;
+	text-align: center;
+	padding: 12px 26px;
+	border: 1px solid #ccc;
+    transition: all 0.1s ease-in-out;
+    border-radius: 3px;
+}
+
+.switch-field  .title {
+    color: #3B4857;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.switch-field  .description {
+    color: #3B4857;
+    font-size: 14px;
+    font-weight: 400;
+    text-align:center;
+}
+
+.switch-field  .ggb-select-image {
+    margin-top:10px;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #eee;
+}
+
+.switch-field input:checked + label {
+    border-bottom: 4px solid #40052F;
+    box-shadow: 2px 2px 8px #ddd;
+    border-color:#40052f;
+}
+
+.switch-field input:checked + label .title {
+    color:#40052F;
+}
+
+
+
