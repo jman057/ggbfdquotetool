@@ -9,11 +9,13 @@ var app = new Vue({
     showForm: false,
     step: 0,
     diretToCommittal: false,
-    toQuote: false,
-    value: "on",
+    preferNotEmbalm: false,
     committal: '',
     viewing: '',
-    private: ''
+    privatetime: '',
+    service: '',
+    formFields: []
+
 
   },
   computed:{
@@ -23,6 +25,18 @@ var app = new Vue({
         }else{
           return this.step/7*100
         }
+      },
+      canProgress:function(){
+        checkSteps = [2,3,4,5]
+        if(checkSteps.includes(this.step)){
+          var rtn = (!!this.formFields[this.step]);
+        
+        }else{
+          var rtn = true;
+        }
+     
+        return rtn;
+
       }
   },
   methods: {
@@ -32,6 +46,7 @@ var app = new Vue({
 
     },
     next: function (){
+
       if(this.diretToCommittal && this.step == 2){
         this.step = 7
       }else{
