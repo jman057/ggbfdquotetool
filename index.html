@@ -103,7 +103,7 @@
               <input type="radio" id="bury" name="committal" value="bury" v-model="formFields[step]" checked/>
               <label for="bury">
                 <div class="ggb-select-image">
-                  <img v-if = "committal == 'bury'" src="assets/bury-active.svg">
+                  <img v-if = "formFields[step] == 'bury'" src="assets/bury-active.svg">
                   <img v-else src="assets/bury-normal.svg">
                 </div>
                 <div class="title">Bury</div>
@@ -115,7 +115,7 @@
               <label for="cremate">
 
                   <div class="ggb-select-image">
-                      <img v-if = "committal == 'cremate'" src="assets/cremate-active.svg">
+                      <img v-if = "formFields[step] == 'cremate'" src="assets/cremate-active.svg">
                       <img v-else src="assets/cremate-normal.svg">
                     </div>
                     <div class="title">Cremation</div>
@@ -126,7 +126,7 @@
               <label for="aquacremate">
 
                   <div class="ggb-select-image">
-                      <img v-if = "committal == 'aquacremate'" src="assets/aqua-active.svg">
+                      <img v-if = "formFields[step] == 'aquacremate'" src="assets/aqua-active.svg">
                       <img v-else src="assets/aqua-normal.svg">
                     </div>
                     <div class="title">BioCremation</div>
@@ -180,7 +180,7 @@
       <input type="radio" id="opencasket" name="viewing" value="opencasket" v-model="formFields[step]" checked/>
       <label for="opencasket">
         <div class="ggb-select-image">
-          <img v-if = "viewing == 'opencasket'" src="assets/casket-open-active.svg">
+          <img v-if = "formFields[step] == 'opencasket'" src="assets/casket-open-active.svg">
           <img v-else src="assets/casket-open-normal.svg">
         </div>
         <div class="title">Open Casket</div>
@@ -191,7 +191,7 @@
       <label for="closedcasket">
 
           <div class="ggb-select-image">
-              <img v-if = "viewing == 'closedcasket'" src="assets/casket-closed-active.svg">
+              <img v-if = "formFields[step] == 'closedcasket'" src="assets/casket-closed-active.svg">
               <img v-else src="assets/casket-closed-normal.svg">
             </div>
             <div class="title">Closed Casket</div>
@@ -240,7 +240,7 @@
     <input type="radio" id="facility" name="privatetime" value="facility" v-model="formFields[step]" checked/>
     <label for="facility">
       <div class="ggb-select-image">
-        <img v-if = "privatetime == 'facility'" src="assets/funeral-directors-active.svg">
+        <img v-if = "formFields[step] == 'facility'" src="assets/funeral-directors-active.svg">
         <img v-else src="assets/funeral-directors-normal.svg">
       </div>
       <div class="title">Funeral Director's Facility</div>
@@ -252,7 +252,7 @@
     <label for="otherlocation">
 
         <div class="ggb-select-image">
-            <img v-if = "privatetime == 'otherlocation'" src="assets/another-location-active.svg">
+            <img v-if = "formFields[step] == 'otherlocation'" src="assets/another-location-active.svg">
             <img v-else src="assets/another-location-normal.svg">
           </div>
           <div class="title">At another location</div>
@@ -263,7 +263,7 @@
     <label for="noprivatetime">
 
         <div class="ggb-select-image">
-            <img v-if = "privatetime == 'noprivatetime'" src="assets/no-visitation-active.svg">
+            <img v-if = "formFields[step] == 'noprivatetime'" src="assets/no-visitation-active.svg">
             <img v-else src="assets/no-visitation-normal.svg">
           </div>
           <div class="title">Not Required</div>
@@ -298,7 +298,7 @@
     <input type="radio" id="graveside" name="service" value="graveside" v-model="formFields[step]" checked/>
     <label for="graveside">
       <div class="ggb-select-image">
-        <img v-if = "service == 'graveside'" src="assets/graveside-active.svg">
+        <img v-if = "formFields[step] == 'graveside'" src="assets/graveside-active.svg">
         <img v-else src="assets/graveside-normal.svg">
       </div>
       <div class="title">Graveside service</div>
@@ -309,7 +309,7 @@
     <label for="fdfacility">
 
         <div class="ggb-select-image">
-            <img v-if = "service == 'fdfacility'" src="assets/funeral-directors-active.svg">
+            <img v-if = "formFields[step] == 'fdfacility'" src="assets/funeral-directors-active.svg">
             <img v-else src="assets/funeral-directors-normal.svg">
           </div>
           <div class="title">Funeral Director's Facility</div>
@@ -322,7 +322,7 @@
     <input type="radio" id="worship" name="service" value="worship" v-model="formFields[step]" checked/>
     <label for="worship">
       <div class="ggb-select-image">
-        <img v-if = "service == 'worship'" src="assets/place-of-worship-active.svg">
+        <img v-if = "formFields[step] == 'worship'" src="assets/place-of-worship-active.svg">
         <img v-else src="assets/place-of-worship-normal.svg">
       </div>
       <div class="title">Place of worship</div>
@@ -333,7 +333,7 @@
     <label for="altvenue">
 
         <div class="ggb-select-image">
-            <img v-if = "service == 'altvenue'" src="assets/alternatice-venue-active.svg">
+            <img v-if = "formFields[step] == 'altvenue'" src="assets/alternatice-venue-active.svg">
             <img v-else src="assets/alternatice-venue-normal.svg">
           </div>
           <div class="title">Altenative Venue</div>
@@ -341,13 +341,6 @@
 
     </label>
   </div>
-
-
-
-
-
-
-
 
 </div>
 
@@ -384,8 +377,6 @@
 
 </div>
 
-
-
 <!-- SETION 7 -->
 
 <div class="form-step" v-show="step==7">
@@ -399,26 +390,22 @@ Remember that the quote is only for the services that the funeral professional d
     </p>
 
 
-
-
-
-
     <h3 class="step-sub-heading">Please tell us more about yourself</h4>
 
-    <toggle-select name = "urgent-quote"  title = "This is an urgent quote. The death has alrady ocurred."></toggle-select>
+    <toggle-select name = "urgent-quote"  title = "This is an urgent quote. The death has already ocurred."></toggle-select>
 
 <div class="row">
   <div class="col">
     <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+      <label for="email">Email address*</label>
+      <input type="email" class="form-control" v-model="email" name="email" id="email" placeholder="name@example.com" required >
     </div>
   </div>
 
   <div class="col">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" name="name" id="name" placeholder="name">
+      <label for="name">Name*</label>
+      <input type="text" class="form-control" v-model="name" name="name" id="name" placeholder="name" required >
     </div>
   </div>
 </div>
@@ -426,9 +413,9 @@ Remember that the quote is only for the services that the funeral professional d
 <div class="row">
   <div class="col">
     <div class="form-group">
-      <label for="Region">Preferred region for services</label>
+      <label for="Region">Preferred region for services*</label>
     
-      <select class="form-control" name="Region" id="Region">
+      <select class="form-control" name="Region" id="Region" v-model = "region" required >
         <option>North Portland</option>
         <option>North West Portland</option>
         <option>North East Portland</option>
@@ -439,8 +426,8 @@ Remember that the quote is only for the services that the funeral professional d
   </div>
   <div class="col">
     <div class="form-group">
-      <label for="phone">Phone</label>
-      <input type="text" class="form-control" name="phone" id="phone" placeholder="021 123 456">
+      <label for="phone">Phone*</label>
+      <input type="text" class="form-control" name="phone" v-model="phone" id="phone" required placeholder="021 123 456">
     </div>
 
   </div>
@@ -459,10 +446,17 @@ Remember that the quote is only for the services that the funeral professional d
     :disabled="!canProgress"
     >Next
   </button>
+
+  <button 
+  v-if="step == 7" 
+  type="submit" 
+  class="btn btn-primary float-right"
+  :disabled="!canProgress"
+  >Submit
+</button>
   
     <p class="progress-error" v-if="!canProgress">Select an option to proceed</p>
   </div>
-
 
 
   <button type="button" class="btn btn-primary"
@@ -475,9 +469,7 @@ Remember that the quote is only for the services that the funeral professional d
   v-else
   >Cancel</button>
 
-    <button v-if="step == 7" type="submit" class="btn btn-primary float-right"
-      >Submit
-    </button>
+
 
 
 </div>

@@ -1,7 +1,4 @@
 
-
-
-
 var app = new Vue({
   el: '#app',
   data: {
@@ -14,7 +11,11 @@ var app = new Vue({
     viewing: '',
     privatetime: '',
     service: '',
-    formFields: []
+    formFields: [],
+    name: '',
+    email:'',
+    phone:'',
+    region: ''
 
 
   },
@@ -29,6 +30,7 @@ var app = new Vue({
       canProgress:function(){
         checkSteps = [2,3,4,5]
         if(checkSteps.includes(this.step)){
+          //check to see if a value has been set for the current step. return boolean.
           var rtn = (!!this.formFields[this.step]);
         
         }else{
