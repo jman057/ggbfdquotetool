@@ -201,17 +201,22 @@
 
     </div>
 
-<h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h2>
+<h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
 
 <div class="step-description-wrapper">
 <help-icon-modal title="Embalming" contents="embalm contents here" id="embalm"></help-icon-modal>
-  <div class="step-description"></div>
-  <p>Embalming adds financial and environmental costs to a funeral. Although it is simtimes necessary, 
-    especially for viewing, there are alternatsive options that can be disucssed with Selecting this option means that your quote will exclude options for embalming</p>
+  <div class="step-description">
+  <p>Embalming adds financial and environmental costs to a funeral. 
+    Although it is sometimes necessary, 
+    especially for viewing, there are alternative options that can be disucssed 
+    with your Funeral Director. </p>
+    <p>Selecting this option means that your quote will exclude options for embalming</p>
 
+</div>
 </div>
 
     <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "We explicitly would prefer not to embalm" checked=""></toggle-select>
+
 </div>
 
 
@@ -286,10 +291,13 @@
     <help-icon-modal title="Arranging a Service" contents="Arranging a Service contents here" id="service"></help-icon-modal>
 
     <div class="step-description">
-      <p>There are any number of ways that families might arrange a Great Goodbye.
-        Traditionally, the casket is present, and whether the service is formal or
-        something less structured, this remains important for many. But families might
-        choose to have the ashes instead of the casket, or opt for a memorial service at a later date.
+      <p>This selection impacts transport costs, and unless you’re having the 
+        service at home there will be a cost associated with the venue hire.</p>
+
+        <p>Whether grand or grassroots, formal or freestyle, the service can be 
+          anywhere that suits your family and the kind of Great Goodbye you’re creating. </p>
+         <p> You might follow the service with an extended, less formal gathering.
+        
         </p>
     </div>
   </div>
@@ -353,19 +361,15 @@
       <help-icon-modal title="Transport" contents="Transport time contents here" id="transport"></help-icon-modal>
         <div class="step-description">
 
-        <p>Driving your loved one to the service and then on to the committal is a special way to get 
-          involved and personalise a Great Goodbye. For some people, taking this last drive 
-          together is deeply meaningful. If that’s not for you, your funeral professional will 
-          be honoured to do this task on your family’s behalf.</p>
-
-     <p>But there is no law that says you can’t transport the casket yourself, 
-       and you might wish to step beyond historic convention and do something a little different.
-        </p>
-      
-      <p>Of course, if you are having the service at home you will not need to specify funeral 
-        transport beyond having the casket delivered to the crematorium or burial ground.</p>
-      
+        <p>Driving your loved one to the service and and/or on to the committal 
+          is a special way to personalise a Great Goodbye. For some, 
+          taking this last drive together is deeply meaningful. </p>
+          <p>If that’s not for you, your funeral professional will be 
+          honoured to do this task on your family’s behalf. Getting a 
+          quote doesn’t lock you into a decision. You’ve probably not 
+          thought about this option before. Talk about it with family. 
           </p>
+    
         </div>
     </div>
 
@@ -381,13 +385,14 @@
 
 <div class="form-step" v-show="step==7">
   <h2 class="form-section-heading">7. Request Quote</h2>
-  <p>We’ll contact local funeral professionals and get some quotes for you, on your behalf. We won't share your contact or private information.
+  <p>We’ll contact local funeral professionals and get some quotes for you, 
+    on your behalf. We won't share your contact or private information.</p>
 
-Once you receive the quotes, you’ll be able to initiate contact with the funeral professionals, or, if you are still unsure about your plan, you can return to Great Goodbyes and get a different quote based on different choices.
-
-Remember that the quote is only for the services that the funeral professional does, and does not include services provided by other professionals that may be included. For those, we encourage you to browse the marketplace.
-
-    </p>
+    <p>Once you receive the quotes, you’ll be able to initiate contact with the funeral professionals, or, if you are still unsure about your plan, you can 
+      return to Great Goodbyes and get a different quote based on different choices.</p>
+      
+      <p>Remember that the quote is only for the services that the funeral professional does, and does not include services provided by other professionals that may be included. For those, we encourage you to visit our marketplace.
+      </p>
 
 
     <h3 class="step-sub-heading">Please tell us more about yourself</h4>
