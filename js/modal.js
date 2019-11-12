@@ -1,9 +1,9 @@
 Vue.component('help-icon-modal', {
-    props:   ["id", "title", "contents"],
+    props:   ["id", "title", "contents", "imgroot"],
      template: `
      <div>
      <span class="step-help-circle" data-toggle="modal" :data-target="'#' + id">
-       <img src="assets/help-circle.svg">
+       <img :src="imgroot+'assets/help-circle.svg'">
      </span>
  
      <div class="modal fade" :id="id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
