@@ -76,3 +76,12 @@ label.switch{
 .switch-wrapper > p{
   margin: 0px;
 }
+.switch-title p{
+  margin:0px;
+}
+
+.switch-title p.switch-description{
+  font-style: italic;
+  font-size: small;
+
+}
