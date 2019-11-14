@@ -65,14 +65,11 @@ h3.step-sub-heading{
   display:flex;
 }
 .step-help-circle{
-  padding-right: 10px;
+  padding-right: 30px;
   padding-top: 7px;
   cursor: pointer;
 }
 
-.next-button-wrapper>p{
-  display:none;
-}
 .next-button-wrapper:hover>p{
   display:block;
 }
@@ -83,3 +80,8 @@ p.progress-error{
   color: #40052F;
   font-size:12px;
 }
+
+.modal-content{
+  top:50px;
+}
+

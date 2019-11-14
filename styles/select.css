@@ -25,6 +25,11 @@
     border-radius: 3px;
     margin-bottom: 20px;
 }
+
+.switch-field label.error {
+  	border: 2px solid rgb(255, 0, 0);
+}
+
 .switch-field.wide label {
   width:354px;
 }
