@@ -3,15 +3,15 @@ Vue.component('toggle-select', {
   model: {
     prop: 'checked',
     event: 'change'
-  }, 
+  },
   props:   [
-    "title", 
-    "name", 
-    "disabled", 
-    "tooltip", 
-    "checked", 
+    "title",
+    "name",
+    "disabled",
+    "tooltip",
+    "checked",
     "selecteddescription",
-    "unselecteddescription" 
+    "unselecteddescription"
   ],
     template: `
     <div data-toggle="tooltip" data-placement="top" :title=tooltip>
@@ -32,7 +32,7 @@ Vue.component('toggle-select', {
                 <label class="switch" >
 
                     <input 
-                    :checked="checked" 
+                    v-model="checked" 
                     :id="name" 
                     :name="name" 
                     type="checkbox" 
