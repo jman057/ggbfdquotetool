@@ -17,17 +17,19 @@ Vue.component('toggle-select', {
     <div data-toggle="tooltip" data-placement="top" :title=tooltip>
 
                <div class="switch-wrapper" >
-               <p> {{title}}
+               
+               <span>
+               <p class="toggle-title"> {{title}}
                </p>
 
-                <p v-if="!!checked && !!selecteddescription">
+                <p v-if="!!checked && !!selecteddescription" class="switch-description">
                 {{selecteddescription}}
                 </p>
-                <p v-if="!checked && !!unselecteddescription">
+                <p v-if="!checked && !!unselecteddescription" class="switch-description">
                 {{unselecteddescription}}
                 </p>
-                {{checked}}
-
+                
+               </span>
 
                 <label class="switch" >
 

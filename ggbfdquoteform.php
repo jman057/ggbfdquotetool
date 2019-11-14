@@ -385,7 +385,7 @@
   <toggle-select 
     name = "to-service"  
     title = "Transport to the service venue"
-    selecteddescription = "Funeral Direcor to quote for transport"
+    selecteddescription = "Funeral Direcor will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""
     >
@@ -393,7 +393,7 @@
   <toggle-select 
     name = "to-committal"  
     title = "Transport to the crematorium or burial ground"
-    selecteddescription = "Funeral Direcor to quote for transport"
+    selecteddescription = "Funeral Direcor will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""
     >

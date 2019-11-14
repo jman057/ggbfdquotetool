@@ -73,15 +73,24 @@ label.switch{
   margin-bottom: 0px;
 }
 
-.switch-wrapper > p{
-  margin: 0px;
-}
-.switch-title p{
+
+.toggle-title{
   margin:0px;
+
+    color: #3B4857;
+    font-size: 16px;
+    font-weight: 600;
+   
+
 }
 
-.switch-title p.switch-description{
+.toggle-title{
+  margin:0px !important;
+}
+
+ .switch-wrapper p.switch-description{
   font-style: italic;
   font-size: small;
+  margin-bottom: 0px !important;
 
 }
