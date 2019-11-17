@@ -115,10 +115,10 @@
 
 
           <div class="switch-field">
-              <input @click = "selectionError = false" type="radio" id="bury" name="committal" value="bury" v-model="formFields[step]" checked/>
+              <input @click = "selectionError = false" type="radio" id="bury" name="committal" value="Burial" v-model="formFields[step]" checked/>
               <label for="bury" :class="{ error: selectionError }">
                 <div class="ggb-select-image">
-                  <img v-if = "formFields[step] == 'bury'" src="<?= $this->plugin_url ?>assets/bury-active.svg">
+                  <img v-if = "formFields[step] == 'Burial'" src="<?= $this->plugin_url ?>assets/bury-active.svg">
                   <img v-else src="<?= $this->plugin_url ?>assets/bury-normal.svg">
                 </div>
                 <div class="title">Bury</div>
@@ -126,22 +126,22 @@
               </label>
 
 
-              <input @click = "selectionError = false" type="radio" id="cremate" name="committal" value="cremate" v-model="formFields[step]"/>
+              <input @click = "selectionError = false" type="radio" id="cremate" name="committal" value="Cremation" v-model="formFields[step]"/>
               <label for="cremate" :class="{ error: selectionError }">
 
                   <div class="ggb-select-image">
-                      <img v-if = "formFields[step] == 'cremate'" src="<?= $this->plugin_url ?>assets/cremate-active.svg">
+                      <img v-if = "formFields[step] == 'Cremation'" src="<?= $this->plugin_url ?>assets/cremate-active.svg">
                       <img v-else src="<?= $this->plugin_url ?>assets/cremate-normal.svg">
                     </div>
                     <div class="title">Cremation</div>
                     <div class="description">The family will have ashes returned for scattering or burying.</div>
 
               </label>
-              <input @click = "selectionError = false" type="radio" id="aquacremate" name="committal" value="aquacremate" v-model="formFields[step]" />
+              <input @click = "selectionError = false" type="radio" id="aquacremate" name="committal" value="Bio Cremation" v-model="formFields[step]" />
               <label for="aquacremate" :class="{ error: selectionError }">
 
                   <div class="ggb-select-image">
-                      <img v-if = "formFields[step] == 'aquacremate'" src="<?= $this->plugin_url ?>assets/aqua-active.svg">
+                      <img v-if = "formFields[step] == 'Bio Cremation'" src="<?= $this->plugin_url ?>assets/aqua-active.svg">
                       <img v-else src="<?= $this->plugin_url ?>assets/aqua-normal.svg">
                     </div>
                     <div class="title">BioCremation</div>
@@ -151,7 +151,8 @@
 
 
 <!-- Direct to commital -->
-          <h3 class="step-sub-heading">Direct to committal  </h2>
+        <div v-if="formFields[step]">
+          <h3 class="step-sub-heading">Direct to {{committalType}} </h2>
 
           <div class="step-description-wrapper">
               <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal>
@@ -174,8 +175,8 @@
               </div>
 
 
-              <toggle-select v-model="diretToCommittal" name = "dtc"  title = "Direct to Committal"></toggle-select>
-
+              <toggle-select v-model="diretToCommittal" name = "dtc"  :title = "'Direct to ' + committalType"></toggle-select>
+        </div>
       </div>
 
 
@@ -190,7 +191,7 @@
   <div class="step-description-wrapper">
     <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing" contents="viewing contents here" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
     <div class="step-description">
-        <p>It’s not for everyone, but for some it’s important to see their
+        <p>It’s not for everyone, but for some it’s important to <i>see</i> their
           loved one, one last time. It’s the chance for a final kiss, or touch
           of the hand. Your funeral director will quote for preparation and presentation.
           </p>
@@ -221,23 +222,24 @@
       </label>
 
     </div>
+<div v-if="formFields[step]">
+  <h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
 
-<h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
+  <div class="step-description-wrapper">
+  <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Embalming" contents="embalm contents here" id="embalm"></help-icon-modal>
+    <div class="step-description">
+    <p>Embalming adds financial and environmental costs to a funeral. 
+      Although it is sometimes necessary, 
+      especially for viewing, there are alternative options that can be disucssed 
+      with your Funeral Director. </p>
+      <p>Selecting this option means that your quote will exclude options for embalming</p>
 
-<div class="step-description-wrapper">
-<help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Embalming" contents="embalm contents here" id="embalm"></help-icon-modal>
-  <div class="step-description">
-  <p>Embalming adds financial and environmental costs to a funeral. 
-    Although it is sometimes necessary, 
-    especially for viewing, there are alternative options that can be disucssed 
-    with your Funeral Director. </p>
-    <p>Selecting this option means that your quote will exclude options for embalming</p>
+  </div>
+  </div>
 
-</div>
-</div>
+      <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "We explicitly would prefer not to embalm" checked=""></toggle-select>
 
-    <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "We explicitly would prefer not to embalm" checked=""></toggle-select>
-
+  </div>
 </div>
 
 
@@ -252,9 +254,10 @@
       <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time" contents="Private time contents here" id="privatetime"></help-icon-modal>
 
     <div class="step-description">
-      <p>An extended time at home, or an hour or two at the funeral home in the days
-          before the service or committal, taking some private time is important for
-          some families. This decision impacts transport arrangements and the funeral professional’s time.
+      <p>For many families taking some private time with their loved one is important. 
+        It’s the chance to have a quiet chat and say goodbye.  
+        It might be an extended time at home, or an hour or two at the funeral home. 
+        This decision impacts transport arrangements and the funeral professional’s time.
 
           </p>
 
@@ -307,38 +310,38 @@
 <!-- SETION 5 -->
 
 <div class="form-step" v-show="step==4" >
-  <h2 class="step-heading">Arranging a Service</h2>
+  <h2 class="step-heading">Place of Service</h2>
   <div class="step-description-wrapper">
     <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Arranging a Service" contents="Arranging a Service contents here" id="service"></help-icon-modal>
 
     <div class="step-description">
-      <p>This selection impacts transport costs, and unless you’re having the 
-        service at home there will be a cost associated with the venue hire.</p>
-
-        <p>Whether grand or grassroots, formal or freestyle, the service can be 
+              <p>Whether grand or grassroots, formal or freestyle, the service can be 
           anywhere that suits your family and the kind of Great Goodbye you’re creating. </p>
          <p> You might follow the service with an extended, less formal gathering.
-        
+      
+         <p>This selection impacts transport costs, and unless you’re having the 
+        service at home there will be a cost associated with the venue hire.</p>
+
         </p>
     </div>
   </div>
 <!-- selection -->
 <div class="switch-field wide">
-    <input @click = "selectionError = false" type="radio" id="graveside" name="service" value="graveside" v-model="formFields[step]" checked/>
+    <input @click = "selectionError = false" type="radio" id="graveside" name="service" value="Gravesite" v-model="formFields[step]" checked/>
     <label for="graveside" :class="{ error: selectionError }">
       <div class="ggb-select-image">
-        <img v-if = "formFields[step] == 'graveside'" src="<?= $this->plugin_url ?>assets/graveside-active.svg">
+        <img v-if = "formFields[step] == 'Gravesite'" src="<?= $this->plugin_url ?>assets/graveside-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/graveside-normal.svg">
       </div>
       <div class="title">Graveside service</div>
       <div class="description">We would like to have the casket open at some point</div>
     </label>
 
-    <input @click = "selectionError = false" type="radio" id="fdfacility" name="service" value="fdfacility" v-model="formFields[step]"/>
+    <input @click = "selectionError = false" type="radio" id="fdfacility" name="service" value="Funeral Directors Facility" v-model="formFields[step]"/>
     <label for="fdfacility" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
-            <img v-if = "formFields[step] == 'fdfacility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
+            <img v-if = "formFields[step] == 'Funeral Directors Facility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
             <img v-else src="<?= $this->plugin_url ?>assets/funeral-directors-normal.svg">
           </div>
           <div class="title">Funeral Director's Facility</div>
@@ -348,21 +351,21 @@
 
   </div>
 <div class="switch-field wide">
-    <input @click = "selectionError = false" type="radio" id="worship" name="service" value="worship" v-model="formFields[step]" checked/>
+    <input @click = "selectionError = false" type="radio" id="worship" name="service" value="Place of Worship" v-model="formFields[step]" checked/>
     <label for="worship" :class="{ error: selectionError }">
       <div class="ggb-select-image">
-        <img v-if = "formFields[step] == 'worship'" src="<?= $this->plugin_url ?>assets/place-of-worship-active.svg">
+        <img v-if = "formFields[step] == 'Place of Worship'" src="<?= $this->plugin_url ?>assets/place-of-worship-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/place-of-worship-normal.svg">
       </div>
       <div class="title">Place of worship</div>
       <div class="description">We would like to have the casket open at some point</div>
     </label>
 
-    <input @click = "selectionError = false" type="radio" id="altvenue" name="service" value="altvenue" v-model="formFields[step]"/>
+    <input @click = "selectionError = false" type="radio" id="altvenue" name="service" value="Alternative Venue" v-model="formFields[step]"/>
     <label for="altvenue" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
-            <img v-if = "formFields[step] == 'altvenue'" src="<?= $this->plugin_url ?>assets/alternatice-venue-active.svg">
+            <img v-if = "formFields[step] == 'Alternative Venue'" src="<?= $this->plugin_url ?>assets/alternatice-venue-active.svg">
             <img v-else src="<?= $this->plugin_url ?>assets/alternatice-venue-normal.svg">
           </div>
           <div class="title">Altenative Venue</div>
@@ -405,7 +408,7 @@
   </toggle-select>
   <toggle-select 
     name = "to-service"  
-    title = "Transport to the service venue"
+    :title = "'Transport to the ' + formFields[4] + ' for the service'"
     selecteddescription = "Funeral Direcor will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""
@@ -413,7 +416,7 @@
   </toggle-select>
   <toggle-select 
     name = "to-committal"  
-    title = "Transport to the crematorium or burial ground"
+    :title = "'Transport to the ' + committalType + ' site'"
     selecteddescription = "Funeral Direcor will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""

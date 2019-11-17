@@ -7,6 +7,7 @@ var app = new Vue({
     step: 0,
     diretToCommittal: false,
     preferNotEmbalm: false,
+    committalType: "Committal",
     committal: '',
     viewing: '',
     privatetime: '',
@@ -20,6 +21,14 @@ var app = new Vue({
 
 
   },
+  watch:{
+    formFields: function(val){
+      if(this.step == 1){
+        this.committalType = this.formFields[this.step];
+      }  
+    }
+  },
+  
   computed:{
       progressPercentage: function (){
         if(this.diretToCommittal){
@@ -58,8 +67,8 @@ var app = new Vue({
       }
       
       this.selectionError = false;
-      if(this.diretToCommittal && this.step == 2){
-        this.step = 7
+      if(this.diretToCommittal && this.step == 1){
+        this.step = 6
       }else{
         this.step++
       }
