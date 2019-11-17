@@ -22,19 +22,21 @@ var app = new Vue({
   computed:{
       progressPercentage: function (){
         if(this.diretToCommittal){
-          return this.step/3*100
+          return this.step/2*100
         }else{
-          return this.step/7*100
+          return this.step/6*100
         }
       },
       canProgress:function(){
-        checkSteps = [2,3,4,5]
+        checkSteps = [1,2,3,4]
+      
         if(checkSteps.includes(this.step)){
           //check to see if a value has been set for the current step. return boolean.
           var rtn = (!!this.formFields[this.step]);
         
         }else{
           var rtn = true;
+     
         }
      
         return rtn;
@@ -49,8 +51,8 @@ var app = new Vue({
     },
     next: function (){
 
-      if(this.diretToCommittal && this.step == 2){
-        this.step = 7
+      if(this.diretToCommittal && this.step == 1){
+        this.step = 6
       }else{
         this.step++
       }
@@ -58,8 +60,8 @@ var app = new Vue({
 
     },
     prev: function() {
-      if(this.diretToCommittal && this.step == 7){
-        this.step = 2
+      if(this.diretToCommittal && this.step == 6){
+        this.step = 1
       }else{
         this.step--
       }

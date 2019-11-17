@@ -26,6 +26,20 @@
         but first, let’s get the basics sorted out.
         </p>
 
+      <div class="info-wrapper">
+      <p>Your quote will include the funeral director's fixed service fee.
+       This is a charge made by every funeral director and covers their 
+       availability to make arrangements on your behalf, 
+       handling paperwork, registering the death and medical 
+       certificate, and a contribution to overheads. The amount of 
+       this fee can differ - it’s one of the reasons getting a quote 
+       is a good idea. Large full service funeral homes with lots of 
+       resources may charge more than a smaller practice. What works 
+       best for your situation is entirely up to you.
+       </p>
+       </div>
+
+
 
       <div style="display:flex; flex-direction: column; align-items: center;">
 
@@ -60,7 +74,8 @@
       <!-- block one -->
       <!-- block one -->
       <!-- block one -->
-      <div class="form-step" v-show="step == 1">
+      <!-- temporarily hidden while we agree to the structure -->
+      <div class="form-step" v-show="step == -1">
 
         <h2 class="step-heading">Funeral Directors Fee</h2>
         <p>All funeral directors charge a fixed service fee.  It covers being available to make
@@ -82,7 +97,7 @@
 <!-- form block 2 -->
 
 
-      <div class="form-step" v-show="step==2">
+      <div class="form-step" v-show="step==1">
         <h2 class="step-heading">Committal of the body</h2>
         <div class="step-description-wrapper">
 
@@ -135,7 +150,7 @@
             </div>
 
 
-
+<!-- Direct to commital -->
           <h3 class="step-sub-heading">Direct to committal  </h2>
 
           <div class="step-description-wrapper">
@@ -146,7 +161,13 @@
                       Any service you arrange will not have the casket present, but might include the ashes.
 
                 </p>
-                <p>Selecting this option will take you straight to the last page, as many services are no longer valid.</p>
+                <p>Selecting direct to committal means you’re electing not to 
+                have the casket present at any service you choose to have. 
+                It also means many other decisions such as viewing are no 
+                longer valid. </p>
+                <p>Once you have selected the type of committal and elected to 
+                do this directly, you can submit for a quote.
+                </p>
                 </span>
 
 
@@ -164,7 +185,7 @@
 <!-- SETION 3 -->
 <!-- SETION 3 -->
 
-<div class="form-step" v-show="step==3">
+<div class="form-step" v-show="step==2">
   <h2 class="step-heading">Viewing</h2>
   <div class="step-description-wrapper">
     <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing" contents="viewing contents here" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
@@ -225,7 +246,7 @@
 <!-- SETION 4 -->
 <!-- SETION 4 -->
 
-<div class="form-step" v-show="step==4">
+<div class="form-step" v-show="step==3">
   <h2 class="step-heading">Private Time / Visitation</h2>
   <div class="step-description-wrapper">
       <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time" contents="Private time contents here" id="privatetime"></help-icon-modal>
@@ -285,7 +306,7 @@
 
 <!-- SETION 5 -->
 
-<div class="form-step" v-show="step==5" >
+<div class="form-step" v-show="step==4" >
   <h2 class="step-heading">Arranging a Service</h2>
   <div class="step-description-wrapper">
     <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Arranging a Service" contents="Arranging a Service contents here" id="service"></help-icon-modal>
@@ -355,7 +376,7 @@
 
 <!-- SETION 6 -->
 
-<div class="form-step" v-show="step==6">
+<div class="form-step" v-show="step==5">
   <h2 class="step-heading">Transport</h2>
   <div class="step-description-wrapper">
       <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" contents="Transport time contents here" id="transport"></help-icon-modal>
@@ -383,8 +404,8 @@
 
 <!-- SETION 7 -->
 
-<div class="form-step" v-show="step==7">
-  <h2 class="form-section-heading">7. Request Quote</h2>
+<div class="form-step" v-show="step==6">
+  <h2 class="form-section-heading">Request Quote</h2>
   <p>We’ll contact local funeral professionals and get some quotes for you, 
     on your behalf. We won't share your contact or private information.</p>
 
@@ -447,13 +468,13 @@
 <div class="float-right next-button-wrapper" style="position:relative">
   <button type="button" class="btn btn-primary"
     @click.prevent="next"
-    v-if="step < 7"
+    v-if="step < 6"
     :disabled="!canProgress"
     >Next
   </button>
 
   <button 
-  v-if="step == 7" 
+  v-if="step == 6" 
   type="submit" 
   class="btn btn-primary float-right"
   :disabled="!canProgress"

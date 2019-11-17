@@ -40,7 +40,7 @@
 
 
 h2.step-heading{
-  font-size: 24;
+  font-size: 24px !important;
   color: #40052F;
   text-align:center;
   margin-top:20px;
@@ -48,7 +48,7 @@ h2.step-heading{
 }
 h3.step-sub-heading{
   color: 273443;
-  font-size: 18px;
+  font-size: 18px !important;
   margin-top:20px;
   margin-bottom:10px;
 }
@@ -82,4 +82,12 @@ p.progress-error{
   text-align: center;
   color: #40052F;
   font-size:12px;
+}
+
+.info-wrapper{
+  border: 1px solid lightgrey;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #FDF7F1;
+  margin-bottom:20px;
 }
