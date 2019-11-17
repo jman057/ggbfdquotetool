@@ -429,7 +429,7 @@
 <!-- SETION 7 -->
 
 <div class="form-step" v-show="step==6">
-  <h2 class="form-section-heading">Request Quote</h2>
+  <h2 class="step-heading">Request Quote</h2>
   <p>We’ll contact local funeral professionals and get some quotes for you, 
     on your behalf. We won't share your contact or private information.</p>
 
