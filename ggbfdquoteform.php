@@ -115,8 +115,8 @@
 
 
           <div class="switch-field">
-              <input type="radio" id="bury" name="committal" value="bury" v-model="formFields[step]" checked/>
-              <label for="bury">
+              <input @click = "selectionError = false" type="radio" id="bury" name="committal" value="bury" v-model="formFields[step]" checked/>
+              <label for="bury" :class="{ error: selectionError }">
                 <div class="ggb-select-image">
                   <img v-if = "formFields[step] == 'bury'" src="<?= $this->plugin_url ?>assets/bury-active.svg">
                   <img v-else src="<?= $this->plugin_url ?>assets/bury-normal.svg">
@@ -126,8 +126,8 @@
               </label>
 
 
-              <input type="radio" id="cremate" name="committal" value="cremate" v-model="formFields[step]"/>
-              <label for="cremate">
+              <input @click = "selectionError = false" type="radio" id="cremate" name="committal" value="cremate" v-model="formFields[step]"/>
+              <label for="cremate" :class="{ error: selectionError }">
 
                   <div class="ggb-select-image">
                       <img v-if = "formFields[step] == 'cremate'" src="<?= $this->plugin_url ?>assets/cremate-active.svg">
@@ -137,8 +137,8 @@
                     <div class="description">The family will have ashes returned for scattering or burying.</div>
 
               </label>
-              <input type="radio" id="aquacremate" name="committal" value="aquacremate" v-model="formFields[step]" />
-              <label for="aquacremate">
+              <input @click = "selectionError = false" type="radio" id="aquacremate" name="committal" value="aquacremate" v-model="formFields[step]" />
+              <label for="aquacremate" :class="{ error: selectionError }">
 
                   <div class="ggb-select-image">
                       <img v-if = "formFields[step] == 'aquacremate'" src="<?= $this->plugin_url ?>assets/aqua-active.svg">
@@ -198,8 +198,8 @@
   </div>
 <!-- inputs -->
   <div class="switch-field wide">
-      <input type="radio" id="opencasket" name="viewing" value="opencasket" v-model="formFields[step]" checked/>
-      <label for="opencasket">
+      <input @click = "selectionError = false" type="radio" id="opencasket" name="viewing" value="opencasket" v-model="formFields[step]" checked/>
+      <label for="opencasket" :class="{ error: selectionError }">
         <div class="ggb-select-image">
           <img v-if = "formFields[step] == 'opencasket'" src="<?= $this->plugin_url ?>assets/casket-open-active.svg">
           <img v-else src="<?= $this->plugin_url ?>assets/casket-open-normal.svg">
@@ -208,8 +208,8 @@
         <div class="description">We would like to have the casket open at some point</div>
       </label>
 
-      <input type="radio" id="closedcasket" name="viewing" value="closedcasket" v-model="formFields[step]"/>
-      <label for="closedcasket">
+      <input @click = "selectionError = false" type="radio" id="closedcasket" name="viewing" value="closedcasket" v-model="formFields[step]"/>
+      <label for="closedcasket" :class="{ error: selectionError }">
 
           <div class="ggb-select-image">
               <img v-if = "formFields[step] == 'closedcasket'" src="<?= $this->plugin_url ?>assets/casket-closed-active.svg">
@@ -263,8 +263,8 @@
 
 <!-- inputs -->
 <div class="switch-field">
-    <input type="radio" id="facility" name="privatetime" value="facility" v-model="formFields[step]" checked/>
-    <label for="facility">
+    <input @click = "selectionError = false" type="radio" id="facility" name="privatetime" value="facility" v-model="formFields[step]" checked/>
+    <label for="facility" :class="{ error: selectionError }">
       <div class="ggb-select-image">
         <img v-if = "formFields[step] == 'facility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/funeral-directors-normal.svg">
@@ -274,8 +274,8 @@
     </label>
 
 
-    <input type="radio" id="otherlocation" name="privatetime" value="otherlocation" v-model="formFields[step]"/>
-    <label for="otherlocation">
+    <input @click = "selectionError = false" type="radio" id="otherlocation" name="privatetime" value="otherlocation" v-model="formFields[step]"/>
+    <label for="otherlocation" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
             <img v-if = "formFields[step] == 'otherlocation'" src="<?= $this->plugin_url ?>assets/another-location-active.svg">
@@ -285,8 +285,8 @@
           <div class="description">At home or arranged venue</div>
 
     </label>
-    <input type="radio" id="noprivatetime" name="privatetime" value="noprivatetime" v-model="formFields[step]" />
-    <label for="noprivatetime">
+    <input @click = "selectionError = false" type="radio" id="noprivatetime" name="privatetime" value="noprivatetime" v-model="formFields[step]" />
+    <label for="noprivatetime" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
             <img v-if = "formFields[step] == 'noprivatetime'" src="<?= $this->plugin_url ?>assets/no-visitation-active.svg">
@@ -324,8 +324,8 @@
   </div>
 <!-- selection -->
 <div class="switch-field wide">
-    <input type="radio" id="graveside" name="service" value="graveside" v-model="formFields[step]" checked/>
-    <label for="graveside">
+    <input @click = "selectionError = false" type="radio" id="graveside" name="service" value="graveside" v-model="formFields[step]" checked/>
+    <label for="graveside" :class="{ error: selectionError }">
       <div class="ggb-select-image">
         <img v-if = "formFields[step] == 'graveside'" src="<?= $this->plugin_url ?>assets/graveside-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/graveside-normal.svg">
@@ -334,8 +334,8 @@
       <div class="description">We would like to have the casket open at some point</div>
     </label>
 
-    <input type="radio" id="fdfacility" name="service" value="fdfacility" v-model="formFields[step]"/>
-    <label for="fdfacility">
+    <input @click = "selectionError = false" type="radio" id="fdfacility" name="service" value="fdfacility" v-model="formFields[step]"/>
+    <label for="fdfacility" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
             <img v-if = "formFields[step] == 'fdfacility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
@@ -348,8 +348,8 @@
 
   </div>
 <div class="switch-field wide">
-    <input type="radio" id="worship" name="service" value="worship" v-model="formFields[step]" checked/>
-    <label for="worship">
+    <input @click = "selectionError = false" type="radio" id="worship" name="service" value="worship" v-model="formFields[step]" checked/>
+    <label for="worship" :class="{ error: selectionError }">
       <div class="ggb-select-image">
         <img v-if = "formFields[step] == 'worship'" src="<?= $this->plugin_url ?>assets/place-of-worship-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/place-of-worship-normal.svg">
@@ -358,8 +358,8 @@
       <div class="description">We would like to have the casket open at some point</div>
     </label>
 
-    <input type="radio" id="altvenue" name="service" value="altvenue" v-model="formFields[step]"/>
-    <label for="altvenue">
+    <input @click = "selectionError = false" type="radio" id="altvenue" name="service" value="altvenue" v-model="formFields[step]"/>
+    <label for="altvenue" :class="{ error: selectionError }">
 
         <div class="ggb-select-image">
             <img v-if = "formFields[step] == 'altvenue'" src="<?= $this->plugin_url ?>assets/alternatice-venue-active.svg">
@@ -382,7 +382,7 @@
       <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" contents="Transport time contents here" id="transport"></help-icon-modal>
         <div class="step-description">
 
-        <p>Driving your loved one to the service and and/or on to the committal 
+        <p>Driving your loved one to the service and/or on to the committal 
           is a special way to personalise a Great Goodbye. For some, 
           taking this last drive together is deeply meaningful. </p>
           <p>If that’s not for you, your funeral professional will be 
@@ -395,9 +395,30 @@
     </div>
 
 
-  <toggle-select name = "collection"  tooltip="This is always included as part of the standard Funeral Director's services " title = "Body collection from place of death" value="true" disabled="true" checked="true"></toggle-select>
-  <toggle-select name = "to-service"  title = "Transport to the service venue"></toggle-select>
-  <toggle-select name = "to-committal"  title = "Transport to the crematorium or burial ground"></toggle-select>
+  <toggle-select 
+    name = "collection"  
+    tooltip="This is always included as part of the standard Funeral Director's services " 
+    title = "Body collection from place of death" 
+    value="true" 
+    disabled="true" 
+    checked="true">
+  </toggle-select>
+  <toggle-select 
+    name = "to-service"  
+    title = "Transport to the service venue"
+    selecteddescription = "Funeral Direcor will quote for transport"
+    unselecteddescription = "Family will arrange transport"
+    checked=""
+    >
+  </toggle-select>
+  <toggle-select 
+    name = "to-committal"  
+    title = "Transport to the crematorium or burial ground"
+    selecteddescription = "Funeral Direcor will quote for transport"
+    unselecteddescription = "Family will arrange transport"
+    checked=""
+    >
+  </toggle-select>
 
 
 </div>
@@ -465,25 +486,25 @@
 
 <div class="lower-nav">
 
-<div class="float-right next-button-wrapper" style="position:relative">
-  <button type="button" class="btn btn-primary"
-    @click.prevent="next"
-    v-if="step < 6"
-    :disabled="!canProgress"
-    >Next
-  </button>
+  <div class="float-right next-button-wrapper" style="position:relative">
+    <button type="button" class="btn btn-primary"
+      @click.prevent="next"
+      v-if="step < 7"
+   
+      >Next
+    </button>
 
-  <button 
-  v-if="step == 6" 
-  type="submit" 
-  class="btn btn-primary float-right"
-  :disabled="!canProgress"
-  >Submit
-</button>
-  
+      
+    <button
+      v-if="step == 7" 
+      type="submit" 
+      class="btn btn-primary float-right"
+      :disabled="!canProgress"
+      >Submit
+    </button>
+      
     <p class="progress-error" v-if="!canProgress">Select an option to proceed</p>
   </div>
-
 
   <button type="button" class="btn btn-primary"
   @click="prev"
@@ -495,16 +516,11 @@
   v-else
   >Cancel</button>
 
-
-
-
 </div>
 
 
 </div>
     </form>
-
-
 
   </div>
 </div>

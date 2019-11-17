@@ -15,7 +15,8 @@ var app = new Vue({
     name: '',
     email:'',
     phone:'',
-    region: ''
+    region: '',
+    selectionError: false,
 
 
   },
@@ -51,8 +52,14 @@ var app = new Vue({
     },
     next: function (){
 
-      if(this.diretToCommittal && this.step == 1){
-        this.step = 6
+      if(!this.canProgress){
+        this.selectionError = true;
+        return false;
+      }
+      
+      this.selectionError = false;
+      if(this.diretToCommittal && this.step == 2){
+        this.step = 7
       }else{
         this.step++
       }
@@ -71,6 +78,9 @@ var app = new Vue({
     cancel: function(){
       this.step = 0
       this.showForm = false
+    },
+    validate: function(){
+      console.log('validation fn called');
     },
 
   }
