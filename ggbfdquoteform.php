@@ -409,7 +409,7 @@
   <toggle-select 
     name = "to-service"  
     :title = "'Transport to the ' + formFields[4] + ' for the service'"
-    selecteddescription = "Funeral Direcor will quote for transport"
+    selecteddescription = "Funeral Director will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""
     >
@@ -417,7 +417,7 @@
   <toggle-select 
     name = "to-committal"  
     :title = "'Transport to the ' + committalType + ' site'"
-    selecteddescription = "Funeral Direcor will quote for transport"
+    selecteddescription = "Funeral Director will quote for transport"
     unselecteddescription = "Family will arrange transport"
     checked=""
     >
@@ -492,14 +492,14 @@
   <div class="float-right next-button-wrapper" style="position:relative">
     <button type="button" class="btn btn-primary"
       @click.prevent="next"
-      v-if="step < 7"
+      v-if="step < 6"
    
       >Next
     </button>
 
       
     <button
-      v-if="step == 7" 
+      v-if="step == 6" 
       type="submit" 
       class="btn btn-primary float-right"
       :disabled="!canProgress"
