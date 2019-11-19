@@ -14,17 +14,21 @@
     <div v-if="!step">
     <h2 class="step-heading"> Funeral Quote Tool</h2>
     <p> Here, you’ll work through the important decisions you need to consider.
-      We’ll contact funeral directors on your behalf and be back to you within 24 hours –
-      sooner if you tell us it’s urgent. Your details remain private until you decide you wish
-      to connect with anyone of the funeral directors </p>
+     We’ll contact funeral directors on your behalf and be back to you 
+     within 24 hours – sooner if you tell us it’s urgent. Your details 
+     remain private until you decide you wish to connect with one of the 
+     funeral directors, and you are under no obligation to do so. </p>
 
-      <p>You can save your answers as a draft if you’re not quite ready to get pricing.
-        Note that your quote won’t include the kinds of decisions that are variable.
-        Things like venue hire, catering, flowers, even caskets have wide-ranging prices.</p>
+    <p>Note that your quote won’t include the kinds of decisions that are variable.
+     Things like venue hire, catering, flowers, even caskets have wide-ranging prices.
+      How much you spend also depends on whether family and friends wish to take 
+      on some aspects themselves.</p>
 
-      <p>Don’t worry, we can help you out with those decisions too,
-        but first, let’s get the basics sorted out.
-        </p>
+  <p>Don’t worry, we can help you out with those decisions too, 
+  but first, let’s get the basics sorted out.
+ </p>
+
+      
 
       <div class="info-wrapper">
       <p>Your quote will include the funeral director's fixed service fee.
@@ -162,12 +166,11 @@
                       Any service you arrange will not have the casket present, but might include the ashes.
 
                 </p>
-                <p>Selecting direct to committal means you’re electing not to 
+                <p>Selecting Direct to {{committalType}} means you’re electing not to 
                 have the casket present at any service you choose to have. 
                 It also means many other decisions such as viewing are no 
                 longer valid. </p>
-                <p>Once you have selected the type of committal and elected to 
-                do this directly, you can submit for a quote.
+                <p>Once you have elected to do this directly, you can submit for a quote.
                 </p>
                 </span>
 
@@ -395,14 +398,18 @@
           </p>
     
         </div>
+
+
     </div>
+      <h3 class="step-sub-heading">Please quote for transport of the body </h3>
 
 
   <toggle-select 
     name = "collection"  
     tooltip="This is always included as part of the standard Funeral Director's services " 
     title = "Body collection from place of death" 
-    value="true" 
+    
+    selecteddescription = "Funeral Director will quote for transport"
     disabled="true" 
     checked="true">
   </toggle-select>
@@ -410,7 +417,7 @@
     name = "to-service"  
     :title = "'Transport to the ' + formFields[4] + ' for the service'"
     selecteddescription = "Funeral Director will quote for transport"
-    unselecteddescription = "Family will arrange transport"
+    unselecteddescription = "A quote is not needed. The family will arrange transport"
     checked=""
     >
   </toggle-select>
@@ -418,7 +425,7 @@
     name = "to-committal"  
     :title = "'Transport to the ' + committalType + ' site'"
     selecteddescription = "Funeral Director will quote for transport"
-    unselecteddescription = "Family will arrange transport"
+    unselecteddescription = "A quote is not needed. The family will arrange transport"
     checked=""
     >
   </toggle-select>

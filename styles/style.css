@@ -88,6 +88,11 @@ p.progress-error{
   background-color: #FDF7F1;
   margin-bottom:20px;
 }
+
+.info-wrapper p{
+  margin-bottom: 0px;
+}
+
 .modal-content{
   top:50px;
 }
