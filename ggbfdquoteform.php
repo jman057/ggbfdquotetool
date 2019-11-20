@@ -173,12 +173,17 @@
                 <p>Once you have elected to do this directly, you can submit for a quote.
                 </p>
                 </span>
-              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal>
+              
 
 
               </div>
 
-
+              <div class="new-help-wrapper" style="display:flex">
+              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal> 
+              <div><p style="margin-bottom:0px; margin-left:-20px; color:#40052">More information</p></div>
+              </div>
+              
+              
               <toggle-select v-model="diretToCommittal" name = "dtc"  :title = "'Direct to ' + committalType"></toggle-select>
         </div>
       </div>
