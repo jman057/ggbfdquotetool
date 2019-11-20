@@ -105,14 +105,15 @@
         <h2 class="step-heading">Committal of the body</h2>
         <div class="step-description-wrapper">
 
-        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="this title" contents="contents here" id="Committal"></help-icon-modal>
 
           <span class="step-description">
             <p>The funeral director will quote for arranging the committal.
               This will include paperwork, transport and other costs specific to your selection.
+              
           </p>
           </span>
 
+        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Committal of the body" :contents=moreInfoCommittal id="Committal"></help-icon-modal>
 
         </div>
 
@@ -159,7 +160,6 @@
           <h3 class="step-sub-heading">Direct to {{committalType}} </h2>
 
           <div class="step-description-wrapper">
-              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal>
 
                 <span class="step-description">
                   <p>Most commonly, this option is for direct to cremation.
@@ -173,6 +173,7 @@
                 <p>Once you have elected to do this directly, you can submit for a quote.
                 </p>
                 </span>
+              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal>
 
 
               </div>
@@ -190,15 +191,15 @@
 <!-- SETION 3 -->
 
 <div class="form-step" v-show="step==2">
-  <h2 class="step-heading">Viewing</h2>
+  <h2 class="step-heading">Viewing the body</h2>
   <div class="step-description-wrapper">
-    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing" contents="viewing contents here" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
     <div class="step-description">
         <p>It’s not for everyone, but for some it’s important to <i>see</i> their
           loved one, one last time. It’s the chance for a final kiss, or touch
           of the hand. Your funeral director will quote for preparation and presentation.
           </p>
     </div>
+    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing the body" :contents="moreInfoViewing" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
   </div>
 <!-- inputs -->
   <div class="switch-field wide">
@@ -229,15 +230,15 @@
   <h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
 
   <div class="step-description-wrapper">
-  <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Embalming" contents="embalm contents here" id="embalm"></help-icon-modal>
     <div class="step-description">
     <p>Embalming adds financial and environmental costs to a funeral. 
       Although it is sometimes necessary, 
       especially for viewing, there are alternative options that can be disucssed 
       with your Funeral Director. </p>
-      <p>Selecting this option means that your quote will exclude options for embalming</p>
+      <p>Selecting this option means that your quote will exclude options for embalming.</p>
 
   </div>
+  <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Embalming" :contents="moreInfoEmblaming" id="embalm"></help-icon-modal>
   </div>
 
       <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "We explicitly would prefer not to embalm" checked=""></toggle-select>
@@ -252,9 +253,8 @@
 <!-- SETION 4 -->
 
 <div class="form-step" v-show="step==3">
-  <h2 class="step-heading">Private Time / Visitation</h2>
+  <h2 class="step-heading">Private time / Visitation</h2>
   <div class="step-description-wrapper">
-      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time" contents="Private time contents here" id="privatetime"></help-icon-modal>
 
     <div class="step-description">
       <p>For many families taking some private time with their loved one is important. 
@@ -265,6 +265,7 @@
           </p>
 
     </div>
+      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time / Visitation" :contents="moreInfoPrivateTime" id="privatetime"></help-icon-modal>
   </div>
 
 <!-- inputs -->
@@ -315,7 +316,6 @@
 <div class="form-step" v-show="step==4" >
   <h2 class="step-heading">Place of Service</h2>
   <div class="step-description-wrapper">
-    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Arranging a Service" contents="Arranging a Service contents here" id="service"></help-icon-modal>
 
     <div class="step-description">
               <p>Whether grand or grassroots, formal or freestyle, the service can be 
@@ -327,6 +327,7 @@
 
         </p>
     </div>
+    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Place of Service" :contents="moreInfoPlaceOfService" id="service"></help-icon-modal>
   </div>
 <!-- selection -->
 <div class="switch-field wide">
@@ -385,7 +386,6 @@
 <div class="form-step" v-show="step==5">
   <h2 class="step-heading">Transport</h2>
   <div class="step-description-wrapper">
-      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" contents="Transport time contents here" id="transport"></help-icon-modal>
         <div class="step-description">
 
         <p>Driving your loved one to the service and/or on to the committal 
@@ -398,6 +398,7 @@
           </p>
     
         </div>
+      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" :contents="moreInfoTransport" id="transport"></help-icon-modal>
 
 
     </div>
@@ -437,13 +438,25 @@
 
 <div class="form-step" v-show="step==6">
   <h2 class="step-heading">Request Quote</h2>
-  <p>We’ll contact local funeral professionals and get some quotes for you, 
-    on your behalf. We won't share your contact or private information.</p>
-
-    <p>Once you receive the quotes, you’ll be able to initiate contact with the funeral professionals, or, if you are still unsure about your plan, you can 
-      return to Great Goodbyes and get a different quote based on different choices.</p>
-      
-      <p>Remember that the quote is only for the services that the funeral professional does, and does not include services provided by other professionals that may be included. For those, we encourage you to visit our marketplace.
+  <p>Now that you’ve completed the questions, we’ll contact local 
+  funeral professionals on your behalf. We won't share your contact 
+  details or private information. </p>
+ <p>Once you receive the quotes get in touch with the funeral 
+ professionals when you’re ready. There will be a link in the 
+ quote document to each of their listings in Great Goodbye. 
+ If you are unsure about your plan return to the Great Goodbyes 
+ website and get a another quote based on different choices.
+ </p>
+  <p> Remember, the quote is only for the particular services 
+  that you’ve responded to in this section. Other things such 
+  as the casket, flowers, order of service and so forth all 
+  depend on individual preference and budget. What the quote does 
+  is consider the decisions that aren’t variable and give you clarity 
+  and comparability on the cost. </p>
+  
+ <p>For all other aspects of the funeral browse the marketplace. 
+ Here you will find wonderful vendors and funeral professionals 
+ who are passionate about helping you arrange a Great Goodbye.
       </p>
 
 
