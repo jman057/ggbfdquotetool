@@ -13,33 +13,29 @@
 
     <div v-if="!step">
     <h2 class="step-heading"> Funeral Quote Tool</h2>
-    <p> Here, you’ll work through the important decisions you need to consider.
-     We’ll contact funeral directors on your behalf and be back to you 
-     within 24 hours – sooner if you tell us it’s urgent. Your details 
-     remain private until you decide you wish to connect with one of the 
-     funeral directors, and you are under no obligation to do so. </p>
+    <p> Here, you’ll work through some important decisions you need to consider.
+     We’ll contact funeral directors on your behalf and be back to you within 24 hours – 
+     sooner if you tell us it’s urgent. Your details remain private until you decide you 
+     wish to connect with one of the funeral directors. </p>
 
-    <p>Note that your quote won’t include the kinds of decisions that are variable.
-     Things like venue hire, catering, flowers, even caskets have wide-ranging prices.
-      How much you spend also depends on whether family and friends wish to take 
-      on some aspects themselves.</p>
+     <p>Your quote won’t include the kinds of decisions that are variable. Things like 
+     venue hire, catering, flowers, even caskets have wide-ranging prices. How much you spend 
+     depends on the choices you make, and whether family and friends wish to take on some aspects 
+     themselves.</p>
 
-  <p>Don’t worry, we can help you out with those decisions too, 
-  but first, let’s get the basics sorted out.
- </p>
+<p>Don’t worry, we can help you out with those decisions too, but first, let’s get the 
+basics sorted out. </p>
 
       
 
       <div class="info-wrapper">
-      <p>Your quote will include the funeral director's fixed service fee.
-       This is a charge made by every funeral director and covers their 
-       availability to make arrangements on your behalf, 
-       handling paperwork, registering the death and medical 
-       certificate, and a contribution to overheads. The amount of 
-       this fee can differ - it’s one of the reasons getting a quote 
-       is a good idea. Large full service funeral homes with lots of 
-       resources may charge more than a smaller practice. What works 
-       best for your situation is entirely up to you.
+      <p>Your quote will include the funeral directors fixed service fee. 
+      This is a charge made by every funeral director and covers their 
+      availability to make arrangements on your behalf, handling paperwork, 
+      registering the death and medical certificate, and a contribution to overheads. 
+      The amount of this fee can differ - it’s one of the reasons getting a quote is a 
+      good idea. Large full service funeral homes with lots of resources may charge 
+      more than a smaller practice. What works best for your situation is entirely up to you.
        </p>
        </div>
 
@@ -102,21 +98,21 @@
 
 
       <div class="form-step" v-show="step==1">
-        <h2 class="step-heading">Committal of the body</h2>
+        <h2 class="step-heading">Cremation or Burial</h2>
         <div class="step-description-wrapper">
 
 
           <span class="step-description">
-            <p>The funeral director will quote for arranging the committal.
-              This will include paperwork, transport and other costs specific to your selection.
-              
+            <p>The funeral director will quote based on the decision you make here. 
+            This will include required paperwork, transport and other costs specific 
+            to your selection.               
           </p>
           </span>
 
-        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Committal of the body" :contents=moreInfoCommittal id="Committal"></help-icon-modal>
+        
 
         </div>
-
+        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Committal of the body" :contents=moreInfoCommittal id="Committal"></help-icon-modal>
 
 
           <div class="switch-field">
@@ -150,43 +146,35 @@
                       <img v-else src="<?= $this->plugin_url ?>assets/aqua-normal.svg">
                     </div>
                     <div class="title">BioCremation</div>
-                    <div class="description">Emerging as a promising environmentally friendly way for decomposition of the body.</div>
+                    <div class="description">Emerging as a more environmentally friendly way for cremation of the body.</div>
               </label>
             </div>
 
 
 <!-- Direct to commital -->
-        <div v-if="formFields[step]">
+ 
           <h3 class="step-sub-heading">Direct to {{committalType}} </h2>
 
           <div class="step-description-wrapper">
 
                 <span class="step-description">
-                  <p>Most commonly, this option is for direct to cremation.
-                      Any service you arrange will not have the casket present, but might include the ashes.
-
-                </p>
-                <p>Selecting Direct to {{committalType}} means you’re electing not to 
-                have the casket present at any service you choose to have. 
-                It also means many other decisions such as viewing are no 
-                longer valid. </p>
-                <p>Once you have elected to do this directly, you can submit for a quote.
-                </p>
+                  <p>Electing Direct to {{committalType}} means the funeral directors involvement 
+                  is limited to paperwork and body disposal. Not 100 percent sure this is 
+                  right for you? Click the icon below for more info. </p>
                 </span>
               
 
 
               </div>
 
-              <div class="new-help-wrapper" style="display:flex">
-              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" contents="dtc contents here" id="dtc"></help-icon-modal> 
-              <div><p style="margin-bottom:0px; margin-left:-20px; color:#40052">More information</p></div>
-              </div>
+            
+              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" :contents="moreInfoDTC" id="dtc"></help-icon-modal> 
+                           
               
               
               <toggle-select v-model="diretToCommittal" name = "dtc"  :title = "'Direct to ' + committalType"></toggle-select>
         </div>
-      </div>
+
 
 
 
@@ -199,13 +187,13 @@
   <h2 class="step-heading">Viewing the body</h2>
   <div class="step-description-wrapper">
     <div class="step-description">
-        <p>It’s not for everyone, but for some it’s important to <i>see</i> their
-          loved one, one last time. It’s the chance for a final kiss, or touch
-          of the hand. Your funeral director will quote for preparation and presentation.
+        <p>It’s not for everyone, but for some it’s important to see 
+        their loved one, one last time. It’s the chance for a final kiss or 
+        touch of the hand. Your funeral director will quote for preparation and presentation
           </p>
     </div>
-    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing the body" :contents="moreInfoViewing" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
   </div>
+    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Viewing the body" :contents="moreInfoViewing" id="viewingmodal" v-model="formFields[step]"></help-icon-modal>
 <!-- inputs -->
   <div class="switch-field wide">
       <input @click = "selectionError = false" type="radio" id="opencasket" name="viewing" value="opencasket" v-model="formFields[step]" checked/>
@@ -231,7 +219,7 @@
       </label>
 
     </div>
-<div v-if="formFields[step]">
+
   <h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
 
   <div class="step-description-wrapper">
@@ -243,13 +231,13 @@
       <p>Selecting this option means that your quote will exclude options for embalming.</p>
 
   </div>
+  </div>
   <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Embalming" :contents="moreInfoEmblaming" id="embalm"></help-icon-modal>
+
+      <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "It is our strong preference not to embalm" checked=""></toggle-select>
+
   </div>
 
-      <toggle-select v-model="preferNotEmbalm" name = "prefernotembalm"  title = "We explicitly would prefer not to embalm" checked=""></toggle-select>
-
-  </div>
-</div>
 
 
 
@@ -262,16 +250,16 @@
   <div class="step-description-wrapper">
 
     <div class="step-description">
-      <p>For many families taking some private time with their loved one is important. 
-        It’s the chance to have a quiet chat and say goodbye.  
-        It might be an extended time at home, or an hour or two at the funeral home. 
-        This decision impacts transport arrangements and the funeral professional’s time.
+      <p>For many families taking some private time with their loved one before the 
+      service is important. It’s the chance to have a quiet chat and say goodbye.  
+      It might be an extended time at home, or an hour or two at the funeral home.
+       This decision impacts transport arrangements and the funeral professional’s time.
 
           </p>
 
     </div>
-      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time / Visitation" :contents="moreInfoPrivateTime" id="privatetime"></help-icon-modal>
   </div>
+      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Private time / Visitation" :contents="moreInfoPrivateTime" id="privatetime"></help-icon-modal>
 
 <!-- inputs -->
 <div class="switch-field">
@@ -323,17 +311,18 @@
   <div class="step-description-wrapper">
 
     <div class="step-description">
-              <p>Whether grand or grassroots, formal or freestyle, the service can be 
-          anywhere that suits your family and the kind of Great Goodbye you’re creating. </p>
-         <p> You might follow the service with an extended, less formal gathering.
-      
-         <p>This selection impacts transport costs, and unless you’re having the 
-        service at home there will be a cost associated with the venue hire.</p>
+              <p>Whether grand or grassroots, formal or freestyle the service can be 
+              anywhere that suits your family and the kind of Great Goodbye you’re creating. 
+              Consider how many people you need to host and whether you  want to follow the 
+              service with an extended, less formal gathering.</p>
+            <p> This selection impacts transport costs, and unless you’re having the 
+            service at home there will be a cost associated with the venue hire.
+ </p>
 
         </p>
     </div>
-    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Place of Service" :contents="moreInfoPlaceOfService" id="service"></help-icon-modal>
   </div>
+    <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Place of Service" :contents="moreInfoPlaceOfService" id="service"></help-icon-modal>
 <!-- selection -->
 <div class="switch-field wide">
     <input @click = "selectionError = false" type="radio" id="graveside" name="service" value="Gravesite" v-model="formFields[step]" checked/>
@@ -342,8 +331,8 @@
         <img v-if = "formFields[step] == 'Gravesite'" src="<?= $this->plugin_url ?>assets/graveside-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/graveside-normal.svg">
       </div>
-      <div class="title">Graveside service</div>
-      <div class="description">We would like to have the casket open at some point</div>
+      <div class="title">Graveside</div>
+      <div class="description">Outdoor service with casket lowering.</div>
     </label>
 
     <input @click = "selectionError = false" type="radio" id="fdfacility" name="service" value="Funeral Directors Facility" v-model="formFields[step]"/>
@@ -353,8 +342,8 @@
             <img v-if = "formFields[step] == 'Funeral Directors Facility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
             <img v-else src="<?= $this->plugin_url ?>assets/funeral-directors-normal.svg">
           </div>
-          <div class="title">Funeral Director's Facility</div>
-          <div class="description">Service at the chappel</div>
+          <div class="title">Funeral Home</div>
+          <div class="description">A dedicated chapel, private room or other service space.</div>
 
     </label>
 
@@ -367,7 +356,7 @@
         <img v-else src="<?= $this->plugin_url ?>assets/place-of-worship-normal.svg">
       </div>
       <div class="title">Place of worship</div>
-      <div class="description">We would like to have the casket open at some point</div>
+      <div class="description">Quaint or grand for familiarity, formality and comfort.</div>
     </label>
 
     <input @click = "selectionError = false" type="radio" id="altvenue" name="service" value="Alternative Venue" v-model="formFields[step]"/>
@@ -378,7 +367,7 @@
             <img v-else src="<?= $this->plugin_url ?>assets/alternatice-venue-normal.svg">
           </div>
           <div class="title">Altenative Venue</div>
-          <div class="description">Somewhere else</div>
+          <div class="description">A family home or another special place.</div>
 
     </label>
   </div>
@@ -393,20 +382,20 @@
   <div class="step-description-wrapper">
         <div class="step-description">
 
-        <p>Driving your loved one to the service and/or on to the committal 
-          is a special way to personalise a Great Goodbye. For some, 
-          taking this last drive together is deeply meaningful. </p>
-          <p>If that’s not for you, your funeral professional will be 
-          honoured to do this task on your family’s behalf. Getting a 
-          quote doesn’t lock you into a decision. You’ve probably not 
-          thought about this option before. Talk about it with family. 
+        <p>Driving the casket to the service and/or on to the committal
+         is a special way to personalise a Great Goodbye. For some, 
+         taking this last drive together is deeply meaningful. </p>
+
+      <p>If that’s not for you, your funeral professional will be 
+      honoured to do this task on your family’s behalf. Getting a quote 
+      doesn’t lock you into a decision. You’ve probably not thought about 
+      this option before so talk about it with family. 
+ 
           </p>
     
         </div>
-      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" :contents="moreInfoTransport" id="transport"></help-icon-modal>
-
-
     </div>
+      <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Transport" :contents="moreInfoTransport" id="transport"></help-icon-modal>
       <h3 class="step-sub-heading">Please quote for transport of the casket </h3>
 
 
@@ -443,27 +432,25 @@
 
 <div class="form-step" v-show="step==6">
   <h2 class="step-heading">Request Quote</h2>
-  <p>Now that you’ve completed the questions, we’ll contact local 
-  funeral professionals on your behalf. We won't share your contact 
-  details or private information. </p>
- <p>Once you receive the quotes get in touch with the funeral 
- professionals when you’re ready. There will be a link in the 
- quote document to each of their listings in Great Goodbye. 
- If you are unsure about your plan return to the Great Goodbyes 
- website and get a another quote based on different choices.
- </p>
-  <p> Remember, the quote is only for the particular services 
-  that you’ve responded to in this section. Other things such 
-  as the casket, flowers, order of service and so forth all 
-  depend on individual preference and budget. What the quote does 
-  is consider the decisions that aren’t variable and give you clarity 
-  and comparability on the cost. </p>
+  <p>With the questions completed we will now contact local funeral 
+  professionals on your behalf. We won't share your contact details or 
+  private information. </p>
+ 
+ <p>Once you receive the quotes get in touch with the funeral professionals 
+ when you’re ready. There will be a link in the quote document to each of 
+ their listings in Great Goodbyes.  If you are unsure about your plan return 
+ to the Great Goodbyes website and get a another quote based on different choices.</p>
   
- <p>For all other aspects of the funeral browse the marketplace. 
- Here you will find wonderful vendors and funeral professionals 
- who are passionate about helping you arrange a Great Goodbye.
-      </p>
-
+ <p>Remember, the quote is only for the particular services that you’ve 
+ responded to in this section. Other things such as the casket, flowers, order 
+ of service and so forth all depend on individual preference and budget. The quote 
+ considers the decisions that aren’t variable and give you clarity and comparability 
+ on the cost. </p>
+  
+ <p>For all other aspects of the funeral browse the marketplace. Here you will 
+ find wonderful vendors and funeral professionals who are passionate about helping 
+ you arrange a Great Goodbye.</p>
+ 
 
     <h3 class="step-sub-heading">Please tell us more about yourself</h4>
 

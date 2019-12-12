@@ -1,7 +1,7 @@
 Vue.component('help-icon-modal', {
     props:   ["id", "title", "contents", "imgroot"],
      template: `
-     <div>
+     <div class="new-help-wrapper" style="display:flex">
      <span class="step-help-circle" data-toggle="modal" :data-target="'#' + id">
        <img :src="imgroot+'assets/help-circle.svg'">
      </span>
@@ -25,6 +25,7 @@ Vue.component('help-icon-modal', {
          </div>
        </div>
      </div>
+     <div><p style="margin-bottom:0px; margin-left:-20px; color:#40052">More information</p></div>
      </div>
  `
    })
