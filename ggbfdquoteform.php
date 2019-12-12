@@ -389,7 +389,7 @@
 <!-- SETION 6 -->
 
 <div class="form-step" v-show="step==5">
-  <h2 class="step-heading">Transport</h2>
+  <h2 class="step-heading">Transporting the casket</h2>
   <div class="step-description-wrapper">
         <div class="step-description">
 
@@ -407,7 +407,7 @@
 
 
     </div>
-      <h3 class="step-sub-heading">Please quote for transport of the body </h3>
+      <h3 class="step-sub-heading">Please quote for transport of the casket </h3>
 
 
   <toggle-select 
