@@ -59,8 +59,10 @@ basics sorted out. </p>
     <!-- quote tool form wrapper -->
     <!-- quote tool form wrapper -->
     <!-- quote tool form wrapper -->
+    <!-- action="https://formspree.io/xneboqbm" -->
     <form
-    action="https://formspree.io/xneboqbm" method="POST"
+    action=""
+    method="POST"
     v-if="showForm" class="card">
         <div class="card-body">
     <div class="progress">
@@ -113,7 +115,6 @@ basics sorted out. </p>
 
         </div>
         <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Committal of the body" :contents=moreInfoCommittal id="Committal"></help-icon-modal>
-
 
           <div class="switch-field">
               <input @click = "selectionError = false" type="radio" id="bury" name="committal" value="Burial" v-model="formFields[step]" checked/>
