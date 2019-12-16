@@ -1,0 +1,50 @@
+.switch-field {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.switch-field > label {
+  margin-bottom: 0;
+  height: auto;
+  width: auto;
+}
+
+.switch-field > label > .description {
+  margin-bottom: 10px;
+}
+
+.switch-field.wide {
+  -ms-grid-columns: (minmax(310px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+}
+
+.switch-field.wide > label {
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .switch-field.wide {
+    -ms-grid-columns: (minmax(240px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .switch-field {
+    -ms-grid-columns: (minmax(180px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+.switch-field:last-of-type {
+  margin-bottom: 30px;
+}
+
+.switch-wrapper label.switch {
+  min-width: 60px;
+}
+/*# sourceMappingURL=responsive.css.map */
