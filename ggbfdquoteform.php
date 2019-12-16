@@ -459,14 +459,14 @@ basics sorted out. </p>
     
 
 <div class="row">
-  <div class="col">
+  <div class="col-12 col-sm-6">
     <div class="form-group">
       <label for="email">Email address*</label>
       <input type="email" class="form-control" v-model="email" name="email" id="email" placeholder="name@example.com" required >
     </div>
   </div>
 
-  <div class="col">
+  <div class="col-12 col-sm-6">
     <div class="form-group">
       <label for="name">Name*</label>
       <input type="text" class="form-control" v-model="name" name="name" id="name" placeholder="name" required >
@@ -475,7 +475,7 @@ basics sorted out. </p>
 </div>
 
 <div class="row">
-  <div class="col">
+  <div class="col-12 col-sm-6">
     <div class="form-group">
       <label for="Region">Preferred region for services*</label>
     
@@ -488,7 +488,7 @@ basics sorted out. </p>
       </select>
     </div>
   </div>
-  <div class="col">
+  <div class="col-12 col-sm-6">
     <div class="form-group">
       <label for="phone">Phone*</label>
       <input type="text" class="form-control" name="phone" v-model="phone" id="phone" required placeholder="021 123 456">
@@ -501,10 +501,20 @@ basics sorted out. </p>
 
 <!-- FORM NAVIGATION -->
 
-<div class="lower-nav">
+<div class="lower-nav text-align-center">
 
-  <div class="float-right next-button-wrapper" style="position:relative">
-    <button type="button" class="btn btn-primary"
+  <button type="button" class="btn btn-primary d-block d-sm-inline-block mx-auto"
+  @click="prev"
+  v-if="step > 1"
+  >Previous</button>
+
+  <button type="button" class="btn btn-primary d-block d-sm-inline-block mx-auto"
+  @click="cancel"
+  v-else
+  >Cancel</button>
+
+  <div class="float-sm-right d-block d-sm-inline-block mx-auto next-button-wrapper" style="position:relative">
+    <button type="button" class="btn btn-primary d-block mx-auto"
       @click.prevent="next"
       v-if="step < 6"
    
@@ -515,23 +525,13 @@ basics sorted out. </p>
     <button
       v-if="step == 6" 
       type="submit" 
-      class="btn btn-primary float-right"
+      class="btn btn-primary d-block mx-auto"
       :disabled="!canProgress"
       >Submit
     </button>
       
-    <p class="progress-error" v-if="!canProgress">Select an option to proceed</p>
+    <p class="progress-error d-block mx-auto" v-if="!canProgress">Select an option to proceed</p>
   </div>
-
-  <button type="button" class="btn btn-primary"
-  @click="prev"
-  v-if="step > 1"
-  >Previous</button>
-
-  <button type="button" class="btn btn-primary"
-  @click="cancel"
-  v-else
-  >Cancel</button>
 
 </div>
 

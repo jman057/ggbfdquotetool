@@ -47,9 +47,10 @@ class GGF_Quoting_Tool {
         );
 
         $this->_css_urls = array(
-            'select_css'    => $this->plugin_url . 'styles/select.css?mtime=' . filemtime($this->plugin_dir . 'styles/select.css'),
-            'style_css'     => $this->plugin_url . 'styles/style.css?mtime=' . filemtime($this->plugin_dir . 'styles/style.css'),
-            'toggle_css'    => $this->plugin_url . 'styles/toggle.css?mtime=' . filemtime($this->plugin_dir . 'styles/toggle.css'),
+            'select_css'        => $this->plugin_url . 'styles/select.css?mtime=' . filemtime($this->plugin_dir . 'styles/select.css'),
+            'style_css'         => $this->plugin_url . 'styles/style.css?mtime=' . filemtime($this->plugin_dir . 'styles/style.css'),
+            'toggle_css'        => $this->plugin_url . 'styles/toggle.css?mtime=' . filemtime($this->plugin_dir . 'styles/toggle.css'),
+            'responsive_css'    => $this->plugin_url . 'styles/responsive.css?mtime=' . filemtime($this->plugin_dir . 'styles/responsive.css'),
         );
 
         // load the plugin
