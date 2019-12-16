@@ -114,7 +114,8 @@ basics sorted out. </p>
         
 
         </div>
-        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Committal of the body" :contents=moreInfoCommittal id="Committal"></help-icon-modal>
+        <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Cremation or Burial" 
+        :contents=moreInfoCommittal id="Committal"></help-icon-modal>
 
           <div class="switch-field">
               <input @click = "selectionError = false" type="radio" id="bury" name="committal" value="Burial" v-model="formFields[step]" checked/>
@@ -169,7 +170,7 @@ basics sorted out. </p>
               </div>
 
             
-              <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Direct to Committal" :contents="moreInfoDTC" id="dtc"></help-icon-modal> 
+              <help-icon-modal imgroot="<?= $this->plugin_url ?>" :title = "'Direct to ' + committalType" :contents="moreInfoDTC" id="dtc"></help-icon-modal> 
                            
               
               
@@ -453,9 +454,9 @@ basics sorted out. </p>
  you arrange a Great Goodbye.</p>
  
 
-    <h3 class="step-sub-heading">Please tell us more about yourself</h4>
+    <h3 class="step-sub-heading">Your Contact Details</h4>
 
-    <toggle-select name = "urgent-quote"  title = "This is an urgent quote. The death has already ocurred."></toggle-select>
+    
 
 <div class="row">
   <div class="col">
@@ -495,7 +496,7 @@ basics sorted out. </p>
 
   </div>
 </div>
-
+<toggle-select name = "urgent-quote"  title = "This is an urgent quote. The death has already ocurred."></toggle-select>
 </div>
 
 <!-- FORM NAVIGATION -->
