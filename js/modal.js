@@ -3,7 +3,7 @@ Vue.component('help-icon-modal', {
      template: `
      <div class="new-help-wrapper" style="display:flex">
      <span class="step-help-circle" data-toggle="modal" :data-target="'#' + id">
-       <img :src="imgroot+'assets/help-circle.svg'">
+       <img :src="imgroot+'assets/question-mark.png'">
      </span>
  
      <div class="modal fade" :id="id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
