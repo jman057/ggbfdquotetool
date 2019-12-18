@@ -61,7 +61,7 @@ basics sorted out. </p>
     <!-- quote tool form wrapper -->
     <!-- action="https://formspree.io/xneboqbm" -->
     <form
-    action=""
+    action="https://formspree.io/xneboqbm"
     method="POST"
     v-if="showForm" class="card">
         <div class="card-body">
