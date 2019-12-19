@@ -411,7 +411,7 @@ basics sorted out. </p>
     checked="true">
   </toggle-select>
   <toggle-select
-    name = "to-service"
+    name = "transport-to-service"
     :title = "'Transport to the ' + formFields[4] + ' for the service'"
     selecteddescription = "Funeral Director will quote for transport"
     unselecteddescription = "A quote is not needed. The family will arrange transport"
@@ -419,7 +419,7 @@ basics sorted out. </p>
     >
   </toggle-select>
   <toggle-select
-    name = "to-committal"
+    name = "transport-to-burial-or-crematorium"
     :title = "'Transport to the ' + committalType + ' site'"
     selecteddescription = "Funeral Director will quote for transport"
     unselecteddescription = "A quote is not needed. The family will arrange transport"
