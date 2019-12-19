@@ -34,8 +34,8 @@ Vue.component('toggle-select', {
                 <label class="switch" >
 
                     <input 
-                    v-model="checked" 
-                    :id="name" 
+                    :checked="checked" 
+                    :id="name"
                     :name="name" 
                     type="checkbox" 
                     :disabled="disabled" 
