@@ -13,29 +13,28 @@
 
     <div v-if="!step">
     <h2 class="step-heading"> Funeral Quote Tool</h2>
-    <p> Here, you’ll work through some important decisions you need to consider.
-     We’ll contact funeral directors on your behalf and be back to you within 24 hours –
-     sooner if you tell us it’s urgent. Your details remain private until you decide you
-     wish to connect with one of the funeral directors. </p>
+    <p> Here, you’ll work through some important decisions you need to consider. 
+    We’ll contact funeral homes on your behalf and be back to you within 24 hours – 
+    sooner if you tell us it’s urgent. Your details remain private until you decide 
+    you wish to connect with one of the funeral homes. </p>
 
-     <p>Your quote won’t include the kinds of decisions that are variable. Things like
-     venue hire, catering, flowers, even caskets have wide-ranging prices. How much you spend
-     depends on the choices you make, and whether family and friends wish to take on some aspects
-     themselves.</p>
+  <p>Your quote won’t include the kinds of decisions that are variable. Things like 
+  venue hire, catering, flowers, even caskets have wide-ranging prices. 
+  How much you spend  depends on the choices you make, and whether family 
+  and friends wish to take on some aspects themselves.</p>
 
-<p>Don’t worry, we can help you out with those decisions too, but first, let’s get the
-basics sorted out. </p>
+<p>Don’t worry, we can help you out with those decisions too, 
+but first, let’s get the basics sorted out. 
+ </p>
 
 
 
       <div class="info-wrapper">
-      <p>Your quote will include the funeral directors fixed service fee.
-      This is a charge made by every funeral director and covers their
-      availability to make arrangements on your behalf, handling paperwork,
-      registering the death and medical certificate, and a contribution to overheads.
-      The amount of this fee can differ - it’s one of the reasons getting a quote is a
-      good idea. Large full service funeral homes with lots of resources may charge
-      more than a smaller practice. What works best for your situation is entirely up to you.
+      <p>Your quote will include the funeral homes fixed service fee. 
+      This is a charge that covers their availability to make arrangements 
+      on your behalf, handling paperwork, registering the death and medical 
+      certificate, and a contribution to overheads. The amount of this fee can
+       differ - it’s one of the reasons getting a quote is a good idea.
        </p>
        </div>
 
@@ -105,9 +104,9 @@ basics sorted out. </p>
 
 
           <span class="step-description">
-            <p>The funeral director will quote based on the decision you make here.
-            This will include required paperwork, transport and other costs specific
-            to your selection.
+            <p>The funeral home will quote for body disposition based on 
+            the decision you make here. This will include required paperwork, 
+            transport and other costs specific to your selection.
           </p>
           </span>
 
@@ -160,9 +159,9 @@ basics sorted out. </p>
           <div class="step-description-wrapper">
 
                 <span class="step-description">
-                  <p>Electing Direct to {{committalType}} means the funeral directors involvement
-                  is limited to paperwork and body disposal. Not 100 percent sure this is
-                  right for you? Click the icon below for more info. </p>
+                  <p>Electing Direct to {{committalType}} means the funeral 
+                  homes involvement is limited to paperwork and body disposal. Not 
+                  100 percent sure this is right for you? Check out More Info </p>
                 </span>
 
 
@@ -189,9 +188,11 @@ basics sorted out. </p>
   <h2 class="step-heading">Viewing the body</h2>
   <div class="step-description-wrapper">
     <div class="step-description">
-        <p>It’s not for everyone, but for some it’s important to see
-        their loved one, one last time. It’s the chance for a final kiss or
-        touch of the hand. Your funeral director will quote for preparation and presentation
+        <p>It’s not for everyone, but for some it’s important to see their loved one, 
+        one last time after death has occurred. It’s the chance for a final kiss or 
+        touch of the hand. Your quote will include preparation and presentation of the body. 
+        Where viewing takes place is dealt with in the next question.
+
           </p>
     </div>
   </div>
@@ -222,15 +223,15 @@ basics sorted out. </p>
 
     </div>
 
-  <h3 class="step-sub-heading">We explicitly would prefer not to embalm  </h3>
+  <h3 class="step-sub-heading">We do not wish to have the body embalmed.  </h3>
 
   <div class="step-description-wrapper">
     <div class="step-description">
-    <p>Embalming adds financial and environmental costs to a funeral.
-      Although it is sometimes necessary,
-      especially for viewing, there are alternative options that can be disucssed
-      with your Funeral Director. </p>
-      <p>Selecting this option means that your quote will exclude options for embalming.</p>
+    <p>Embalming adds financial and environmental costs to a funeral. 
+    Although occasionally required if transporting the body some distance, 
+    it is rarely necessary for other reasons and there are alternative options if 
+    you would prefer not to embalm.
+</p>
 
   </div>
   </div>
@@ -252,12 +253,11 @@ basics sorted out. </p>
   <div class="step-description-wrapper">
 
     <div class="step-description">
-      <p>For many families taking some private time with their loved one before the
-      service is important. It’s the chance to have a quiet chat and say goodbye.
-      It might be an extended time at home, or an hour or two at the funeral home.
-       This decision impacts transport arrangements and the funeral professional’s time.
-
-          </p>
+      <p>For many families taking some private time with their loved one before 
+      the service is important. It’s the chance to have a quiet chat and say goodbye.  
+      It might be an extended time at home, or an hour or two at funeral home premises. 
+      This decision impacts transport arrangements and the funeral professional’s time. 
+</p>
 
     </div>
   </div>
@@ -271,7 +271,7 @@ basics sorted out. </p>
         <img v-if = "formFields[step] == 'facility'" src="<?= $this->plugin_url ?>assets/funeral-directors-active.svg">
         <img v-else src="<?= $this->plugin_url ?>assets/funeral-directors-normal.svg">
       </div>
-      <div class="title">Funeral Director's Facility</div>
+      <div class="title">At the funeral home</div>
       <div class="description">Chapel or purpose-specific room</div>
     </label>
 
@@ -313,15 +313,16 @@ basics sorted out. </p>
   <div class="step-description-wrapper">
 
     <div class="step-description">
-              <p>Whether grand or grassroots, formal or freestyle the service can be
-              anywhere that suits your family and the kind of Great Goodbye you’re creating.
-              Consider how many people you need to host and whether you  want to follow the
-              service with an extended, less formal gathering.</p>
-            <p> This selection impacts transport costs, and unless you’re having the
-            service at home there will be a cost associated with the venue hire.
+              <p>Whether grand or grassroots, formal or freestyle the service 
+              can be anywhere that suits your family and the kind of Great Goodbye 
+              you’re creating. Consider how many people you need to host and 
+              whether you want to follow the service with an extended, less formal gathering.</p>
+ 
+ <p>This selection impacts transport costs, and unless you’re having the service at home 
+ there could be a cost associated with the venue hire.
  </p>
 
-        </p>
+       
     </div>
   </div>
     <help-icon-modal imgroot="<?= $this->plugin_url ?>" title="Place of Service" :contents="moreInfoPlaceOfService" id="service"></help-icon-modal>
@@ -384,16 +385,15 @@ basics sorted out. </p>
   <div class="step-description-wrapper">
         <div class="step-description">
 
-        <p>Driving the casket to the service and/or on to the committal
-         is a special way to personalise a Great Goodbye. For some,
-         taking this last drive together is deeply meaningful. </p>
+        <p>Driving the casket to the service and/or on to the committal is a 
+        special way to personalise a Great Goodbye. For some, taking this last 
+        drive together is deeply meaningful. </p>
 
-      <p>If that’s not for you, your funeral professional will be
-      honoured to do this task on your family’s behalf. Getting a quote
-      doesn’t lock you into a decision. You’ve probably not thought about
-      this option before so talk about it with family.
-
-          </p>
+    <p>If that’s not for you, your funeral professional will be honoured to do 
+    this task on your family’s behalf. Getting a quote doesn’t lock you into a 
+    decision. You’ve probably not thought about this option before so talk about 
+    it with family.
+</p>
 
         </div>
     </div>
@@ -434,24 +434,25 @@ basics sorted out. </p>
 
 <div class="form-step" v-show="step==6">
   <h2 class="step-heading">Request Quote</h2>
-  <p>With the questions completed we will now contact local funeral
-  professionals on your behalf. We won't share your contact details or
-  private information. </p>
-
- <p>Once you receive the quotes get in touch with the funeral professionals
- when you’re ready. There will be a link in the quote document to each of
- their listings in Great Goodbyes.  If you are unsure about your plan return
- to the Great Goodbyes website and get a another quote based on different choices.</p>
-
- <p>Remember, the quote is only for the particular services that you’ve
- responded to in this section. Other things such as the casket, flowers, order
- of service and so forth all depend on individual preference and budget. The quote
- considers the decisions that aren’t variable and give you clarity and comparability
- on the cost. </p>
-
- <p>For all other aspects of the funeral browse the marketplace. Here you will
- find wonderful vendors and funeral professionals who are passionate about helping
- you arrange a Great Goodbye.</p>
+  <p>With the questions completed we will now contact local funeral 
+  professionals on your behalf. We won't share your contact details 
+  or private information. </p>
+ 
+ <p>Once you receive the quotes get in touch with the funeral professionals 
+ when you’re ready. There will be a link in the quote document to each of 
+ their listings in Great Goodbyes.  If you are unsure about your plan return 
+ and get another quote based on different choices.</p>
+  
+ <p>Remember, the quote is only for the particular services that you’ve 
+ responded to in this section. Other things such as the casket, flowers, 
+ order of service and so forth all depend on individual preference and 
+ budget. The quote considers the decisions that aren’t variable and give 
+ you clarity and comparability on the cost. <p>
+  
+ <p>For all other aspects of the funeral browse the marketplace. Here 
+ you will find wonderful vendors and funeral professionals who are passionate 
+ about helping you arrange a Great Goodbye.
+ </p>
 
 
     <h3 class="step-sub-heading">Your Contact Details</h4>
