@@ -160,8 +160,7 @@ but first, let’s get the basics sorted out.
 
                 <span class="step-description">
                   <p>Electing Direct to {{committalType}} means the funeral 
-                  homes involvement is limited to paperwork and body disposal. Not 
-                  100 percent sure this is right for you? Check out More Info </p>
+                  homes involvement is limited to paperwork and body disposal. </p>
                 </span>
 
 
@@ -174,6 +173,15 @@ but first, let’s get the basics sorted out.
 
 
               <toggle-select v-model="diretToCommittal" name = "dtc"  :title = "'Direct to ' + committalType"></toggle-select>
+
+              <div v-if="diretToCommittal" class="info-wrapper">
+      <p>Not 100 percent sure is this is right for you or what’s involved? see <a>More Info</a> for guidance.
+       </p>
+       </div>
+
+
+
+
         </div>
 
 
