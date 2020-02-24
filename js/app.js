@@ -56,11 +56,11 @@ var app = new Vue({
     </p>
     `,
     moreInfoDTC: `
-    <p>Direct to cremation or burial typically means the body is cremated without a 
-    service. Cheaper than standard cremations it takes place outside peak operating 
-    hours of the crematorium. Ashes are returned to the family. 
+    <p>Direct to cremation or burial typically means the body is dispposed of without a 
+    service. Cheaper than standard fees it takes place outside peak operating 
+    hours of the crematorium. If cremated, ashes are returned to the family. 
 
-    There are any number of reasons a family or individual might choose Direct to Cremation or Burial. 
+    There are any number of reasons a family or individual might choose direct to cremation or burial. 
     For some it removes the financial pressure that a funeral service brings.  For 
     others it’s a way to keep things simple as a raft of pressing decisions like choosing a 
     casket, flowers, venue and many other details can be delayed. Still others might be
@@ -175,8 +175,8 @@ var app = new Vue({
     </p>
     `,
     moreInfoPlaceOfService: `
-    <p>The service, in whatever form it takes, is where a lot of the meaningful moments 
-    happen, and where you have the service and any after function can influence the 
+    <p>The service is where a lot of the meaningful moments 
+    happen. Where you have the service and any after function can influence the 
     style of that service. Nothing sets the tone of a Great Goodbyes more than 
     location, from the food you serve  to how people might dress. A funeral service 
     held in a winery or at the beach could have a different feel to one in a church 

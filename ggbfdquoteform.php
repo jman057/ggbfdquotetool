@@ -231,7 +231,7 @@ but first, let’s get the basics sorted out.
 
     </div>
 
-  <h3 class="step-sub-heading">We do not wish to have the body embalmed.  </h3>
+  <h3 class="step-sub-heading">Embalming  </h3>
 
   <div class="step-description-wrapper">
     <div class="step-description">
