@@ -58,7 +58,7 @@ var app = new Vue({
     moreInfoDTC: `
     <p>Direct to cremation or burial typically means the body is dispposed of without a 
     service. Cheaper than standard fees it takes place outside peak operating 
-    hours of the crematorium. If cremated, ashes are returned to the family. 
+    hours of the crematorium or cemetary. If cremated, ashes are returned to the family. 
 
     There are any number of reasons a family or individual might choose direct to cremation or burial. 
     For some it removes the financial pressure that a funeral service brings.  For 

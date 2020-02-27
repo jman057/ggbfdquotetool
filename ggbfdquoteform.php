@@ -68,7 +68,8 @@ but first, let’s get the basics sorted out.
       <div class="progress-bar" role="progressbar" v-bind:style="{width: progressPercentage + '%'}" aria-valuenow="{{message}}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 
-
+    <!-- hidden input for Formspree redirect -->
+    <input type="hidden" name="_next" value="https://www.great-goodbyes.com/quote-request-received/"/>
 
 
 
