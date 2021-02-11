@@ -176,7 +176,7 @@ but first, let’s get the basics sorted out.
               <toggle-select v-model="diretToCommittal" name = "dtc"  :title = "'Direct to ' + committalType"></toggle-select>
 
               <div v-if="diretToCommittal" class="info-wrapper">
-      <p>Not 100 percent sure is this is right for you or what’s involved? see <a>More Info</a> for guidance.
+      <p>Not 100 percent sure if this is right for you or what’s involved? see <a>More Info</a> for guidance.
        </p>
        </div>
 

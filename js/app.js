@@ -259,6 +259,8 @@ var app = new Vue({
     newQuote: function () {
       this.showForm = true
       this.step = 1
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
     },
     next: function (){
@@ -275,6 +277,11 @@ var app = new Vue({
         this.step++
       }
 
+      
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      
+
 
     },
     prev: function() {
@@ -283,7 +290,8 @@ var app = new Vue({
       }else{
         this.step--
       }
-
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
     },
     cancel: function(){
